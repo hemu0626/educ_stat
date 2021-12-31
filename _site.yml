@@ -8,7 +8,7 @@ navbar:
     - text: "Item Response Theory"
       href: irt.html
     - text: "Cognitive Diagnosis Models"
-      href: cdm.html
+      href: cdms.html
     - text: "Misc"
       href: misc.html
 output:
