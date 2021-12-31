@@ -1,0 +1,134 @@
+---
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+---
+
+## Item Response Theory 
+
+### Item Difficulty
+
+答对率法：传统方法，难度会因为样本不一样而改变
+
+### Univaraite Item Response Theory (One-parameter Logistic Model)
+
+逻辑曲线模拟试题难度 (0,1 response)
+
+Logistic Cure or Item characteristic cure (ICC), is a function relating the probability of correct response to the ability scale.
+
+$$P_i(\theta)=P(U_i=1|\theta)$$
+
+To include the covariates
+
+$$P(U_i|\theta,b_i)=\frac{e^{\theta-b_i}}{1+e^{\theta-b_i}}$$
+
+where $b_i$ is the item difficulty parameter.
+
+Example: 
+
+$$P_1(\theta)=\frac{e^{\theta+1}}{1+e^{\theta+1}}, \quad P_2(\theta)=\frac{e^{\theta-1}}{1+e^{\theta-1}}$$
+一条逻辑曲线就是一套试题
+
+When $\theta=b_i$, we say that the ability match the difficulty of the tests and we say $P_i=0.5$.
+
+In practice, we set $b_i \in (-3,3)$. The larger $b_i$, the harder item.
+
+### Item-person Map
+
+把学生能力和试题对比，差生答对难题的概率很低
+
+可以和古典的 CTT对比 
+
+### Outfit
+
+Does the model fit the data well?
+
+*Residual-based fit statistics*  残差验证不好 
+
+$$P_i(\theta)=P(U_i=1|\theta), \quad \mathbb{E}(U_{ji})=P(U_i=1|\theta=\theta_j)$$
+
+试图标准化 标注差 
+
+*Variance*  (Bernulli Distribution)
+
+$$Var(U_{ji})=P(U_i=1|\theta_j)(1-P(U_i=1|\theta_j))=0.05\times 0.95=0.0475$$
+假设A每次答对的概率是0.05，所以variance很小
+
+如果B能力更强，答对的概率是0.43，那么对应的variance会是
+$$Var(U_{ji})=P(U_i=1|\theta_j)(1-P(U_i=1|\theta_j))=0.43\times 0.57=0.2451$$
+
+如果C是个学霸，答对的概率是0.91,variance也很小
+
+$$Var(U_{ji})=P(U_i=1|\theta_j)(1-P(U_i=1|\theta_j))=0.91\times 0.09=0.0819$$
+可以相对应的算标准差， 随着能力（$\theta$）的变化，两边小中间大
+
+*Error Bar*
+
+When a item is 'off-target' (too easy or too hard for a person), the variance is relatively small.
+  
+*Standardized Residual*
+
+$$Z_{ji}=\frac{U_{ji}-\mathbb{E}(U_{ji})}{\sqrt{Var(U_{ji})}}$$
+
+*Outfit Mean-square Value (MNSQ)*
+
+$$outfit_i=\frac{1}{N}\sum_{j=1}^Nz^2_{ji}$$
+
+Under-fit (bad qustions)
+
+There is a standard in Linacre (2006)
+
++ $outfit > 2$, bad question, remove
++ $1.5 - 2.0$, not too bad, acceptable
++ $0.5 - 1.5$, good question
++ $<0.5$, not very much influntial, acceptable, 送分题的意思？（有一种例外，鉴别度很高的试题，简单的全对，难的全错）
+
+*Reference*
+
++ Linacre (2006)
+
+
+## Two-parameter logistic model
+单参数模型只是进行了平移，并没有改变曲线的形状
+$$P_i(\theta)=\frac{e^{\theta-b_i}}{1+e^{\theta-bi}}$$
+
+双参数给了一个shape parameter
+
+$$P_i(\theta)=\frac{e^{a_i(\theta-b_i)}}{1+e^{a_i(\theta-b_i)}}$$
+
++ $a_i$ is the discrimination parameter.
++ $b_i$ is the item difficulty parameter.
+
+## Rasch Model
+
+In the Rasch model, the discrinimation parameters of two-parameter logistic models are set to 1, which are equal to the one-parameter logistic models, or they are set to the same value $a>0$
+$$P_i(\theta)=\frac{e^{a_i(\theta-b_i)}}{1+e^{a_i(\theta-b_i)}}$$
+
+
+
+## A drawback to CTT/UIRT
+
+Classical Test Theory and Item Response Theory
+
+Remedial Course
+
+In traditional method such as classical test theory (CTT)/unidimensional item response theory (UIRT), teachers only use total scores abilities to compare students' learning performance.
+
+Moreover, some students may have the same total score but their mastering skills are differet.
+
+In recent remedial teaching, most teachers use the same learning materials for the students whose total score below than a threshold. 缺点总结，如何改进呢？
+
+
+## Three-parameter Logistic Model
+
+Guessing on an item 有些题是可以猜的IRT可以考虑猜的问题。可以再加一个参数
+
+$$[0,1] \rightarrow [0.2,1]$$
+
+$$P_i(\theta)=c_i+(1-c_i)\frac{e^{a_i(\theta-b_i)}}{1+e^{a_i(\theta-b_i)}}$$
+
++ $a_i$ discrimination parameter
++ $b_i$ item difficulty parameter
++ $c_i$ guessing parameter
