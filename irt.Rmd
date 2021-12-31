@@ -1,4 +1,5 @@
 ---
+title: "Item Response Theory"
 output:
   html_document:
     toc: true
@@ -6,13 +7,11 @@ output:
     toc_depth: 4
 ---
 
-## Item Response Theory 
-
-### Item Difficulty
+## Item Difficulty
 
 答对率法：传统方法，难度会因为样本不一样而改变
 
-### Univaraite Item Response Theory (One-parameter Logistic Model)
+## Univaraite Item Response Theory (One-parameter Logistic Model)
 
 逻辑曲线模拟试题难度 (0,1 response)
 
@@ -141,7 +140,7 @@ library(TAM)
 library(stringi)
 library(tidyverse)
 library(readxl)
-setwd("~/Item_Repsone_Theoryu")
+#setwd("~/Item_Repsone_Theoryu")
 data1<-read_excel('mth017_mid.xlsx')
 data1<-data1 %>% select(2:29)
 data2<- apply(data1,2,function(x) str_sub(x,-1,-1))
@@ -178,3 +177,24 @@ msq.itemfit(logit1)
 ```{r}
 plot(logit1,item=1)
 ```
+
+*Two Parameter IRT*
+
+```{r echo=TRUE,message=FALSE,eval=TRUE,results='hide'}
+logit2<-tam.mml.2pl(CTT_score$scored)
+```
+
+```{r echo=TRUE,message=FALSE,eval=TRUE}
+logit2$item
+```
+
++ AXsi_.Cat1 is the difficulty level
+
++ B.Cat1.Dim1 is the discrimination level
+
+```{r,results='hide'}
+par(mfrow=c(2,2))
+for(i in 1:4){
+plot(logit2,items=i)
+}
+```  

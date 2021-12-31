@@ -17,12 +17,12 @@ CDMs try to identify the strength and weakness in a sets of fine-grained skills(
 
 In CDMs, a student is classified into dichotomous latent skill classes according to the corresponding response of a test and a given *Q matrix* which skills are required to master each item
 
-| Q-matrix      | Add | Sub | Multiply|
+| Q-matrix| Add | Sub | Multiply|
 | --------| ----|-----|---------|
-| 7+2   | 1   |0 | 0 |
-| 3+4-2 | 1   |1 | 0|
-|$(5\times 2)+4$| 1|0|1|
-|$(3\times 2)-2$|0|1|1|
+| $7+2$   |  $1$| $0$| $0$|
+| $3+4-2$ | $1$ |$1$ | $0$|
+|$(5\times 2)+4$| $1$|$0$ |$1$|
+|$(3\times 2)-2$|$0$ |$1$ |$1$|
 
 **Q-matrix**
 
