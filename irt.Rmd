@@ -132,3 +132,49 @@ $$P_i(\theta)=c_i+(1-c_i)\frac{e^{a_i(\theta-b_i)}}{1+e^{a_i(\theta-b_i)}}$$
 + $a_i$ discrimination parameter
 + $b_i$ item difficulty parameter
 + $c_i$ guessing parameter
+
+## MTH017 Midterm Example
+
+```{r echo=TRUE,message=FALSE,eval=TRUE}
+library(CTT)
+library(TAM)
+library(stringi)
+library(tidyverse)
+library(readxl)
+setwd("~/Item_Repsone_Theoryu")
+data1<-read_excel('mth017_mid.xlsx')
+data1<-data1 %>% select(2:29)
+data2<- apply(data1,2,function(x) str_sub(x,-1,-1))
+answer_key<-str_sub(c('1A','2B','3B','4A','5A','6B','7D','8A','9D','10B','11A','12B','13D','14A','15C','16B','17B','18C','19C','20E','21A','22B','23C','24C','25B','26C','27D','28C'),-1,-1)
+CTT_score<-score(data2,answer_key,output.scored=T)
+#CTT_score$scored
+```
+
+```{r echo=TRUE,message=FALSE,eval=TRUE,results='hide'}
+library(TAM)
+logit1<-tam(CTT_score$scored)
+```
+
+Then, we can extract the results
+
+Variance 
+
+EAP Reliability
+
+$$\xi$$
+difficulty level
+
+```{r echo=TRUE,message=FALSE,eval=TRUE}
+logit1$xsi
+```
+
+outfit
+
+Mean Sum of Squares
+```{r echo=TRUE,message=FALSE,eval=TRUE}
+msq.itemfit(logit1)
+```
+
+```{r}
+plot(logit1,item=1)
+```
