@@ -44,4 +44,4 @@ Q-matrix indicates whether test item requires that an examinee possess attribute
 **q-vector**
 $$q_1=\begin{bmatrix}1 & 0 & 0\end{bmatrix}, \quad q_2=\begin{bmatrix}1 & 1 & 0\end{bmatrix}, \quad \cdots$$
 
-##  next
+##  next one
