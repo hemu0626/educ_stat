@@ -1,0 +1,45 @@
+---
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+---
+
+
+## Cognitive Diagnosis Models
+
+Cognitive diagnosis models (CDMs) are special types of restricted latent class model that have received a great deal of attention in the past several years.
+
+CDMs try to identify if an examinee has mastered specific skills required to solve an item.
+
+CDMs try to identify the strength and weakness in a sets of fine-grained skills(or attributtes) differs from the objective of traditional measurement models.
+
+In CDMs, a student is classified into dichotomous latent skill classes according to the corresponding response of a test and a given *Q matrix* which skills are required to master each item
+
+| Q-matrix      | Add | Sub | Multiply|
+| --------| ----|-----|---------|
+| 7+2   | 1   |0 | 0 |
+| 3+4-2 | 1   |1 | 0|
+|$(5\times 2)+4$| 1|0|1|
+|$(3\times 2)-2$|0|1|1|
+
+**Q-matrix**
+
+$$Q=\begin{bmatrix} q_{11} & \cdots & q_{1k} &\cdots &q_{1K}\\ \vdots & & \vdots & &\vdots\\
+q_{j1}& \cdots & q_{jk} & \cdots & q_{jK}\\
+\vdots & & \vdots & &\vdots\\
+q_{J1} & \cdots & q_{Jk} & \cdots & q_{JK}
+\end{bmatrix}$$
+
+where $J$ means the number of items and $K$ means the number of attributes.
+
+In our case,
+
+$$Q=\begin{bmatrix} 1 & 0 & 0\\ 1 & 1 & 0 \\ 1 & 0 & 1\\ 0 & 1 & 1\end{bmatrix}$$
+In educational testing, the attributes required for responding correctly to an item might correspond to specific skills that are usually determined by experts.
+
+Q-matrix indicates whether test item requires that an examinee possess attribute to respond correctly to that item.
+
+**q-vector**
+$$q_1=\begin{bmatrix}1 & 0 & 0\end{bmatrix}, \quad q_2=\begin{bmatrix}1 & 1 & 0\end{bmatrix}, \quad \cdots$$
