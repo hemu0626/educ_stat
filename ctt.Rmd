@@ -6,4 +6,93 @@ output:
     toc_depth: 4
 ---
 
-## CTT
+### Psychometrics Literature Review
+
+#### Classical Test Theory(CTT)
+
+Classical Testing Theory (**CTT**) is the oldest psychometric Theory in history, with the longest development time, extensive influence on practical work and the most familiar to people (Cheng, 2009). CTT was proposed by British psychologist Charles Spearman in the early 20th century to predict the results of psychological testing. Such as the difficulty of an item or the testtakers' ability. 
+
+According to the CTT theory, measurement results cannot avoid errors, so CTT assumes that the observed results are linear with the real results. That is, the **observed score (X)** is the sum of the **true score (T)** and the **error (E**), thus forming the model of $CTT: X=T+E$ (Keskin and Gunay 2021).
+
+
+
+#### Item Response Theory(IRT)
+
+Item response theory**(IRT)** was initially proposed in the 1950s and 1960s by Frederic Lord and other psychometricians (Lord, 1952; Lord & Novick, 1968) with the purpose of assessing items in tests. IRT models provide item and ability parameter invariance for test items and persons, enabling that the item difficuly will not be influenced by different samples and the examinees' scores will not depend on one particular test items(Zazon, Hutz, and Hambleton, 2016).
+
+Therefore, IRT can bring greater flexibility and improve measurement reliability, functioning as an effective alternative to Classical Test Theory(**CTT**).
+
+#### Rasch model 
+
+Rasch model is a latent trait model proposed by Danish mathematician and statistician GeorgRasch which based on the Item Response Theory(**IRT**).
+
+As a latent trait model, the Rasch model measures unobservable latent variables through the individual's performance on a topic (Masters,1980). According to the Rasch model principle, the probability that a particular individual will respond to a particular question can be expressed as a simple function of the individual's ability and the difficulty of the question.Von Davier, M., & Carstensen (2007) thought that  whether an individual answers a certain question correctly or not completely  depends on the comparison between the individual's ability and the difficulty of the question.
+
+**Lexile** is an English reading assessment system, which is based on the Lexile scale developed based on Rasch model for individual reading ability and article reading difficulty.
+
+In the Rasch model, the discrinimation parameters of two-parameter logistic models are set to 1, which are equal to the one-parameter logistic models, or they are set to the same value $a>0$
+$$P_i(\theta)=\frac{e^{a_i(\theta-b_i)}}{1+e^{a_i(\theta-b_i)}}$$
+
+#### Cognitive Diagnosis Models(CDMs)
+
+Cognitive diagnosis models (**CDMs**)，also referred to as diagnostic classification models (**DCMs**)，were introduced to provide fine-grained and multidimensional diagnostic information about strengths and weaknesses of examinees, allowing for more reasonable examination setting and targeted instruction (Chen, Liu, and Ying, 2015). DCMs help evaluate students' mastery status on a set of latent attributes according to item responses (Pan, Qin and Kingston, 2020).
+
+Following Templin (2006), cognitive diagnosis models (**CDMs**) are special types of restricted latent class model that have received a great deal of attention in the past several years. CDMs try to identify if an examinee has mastered specific skills required to solve an item. CDMs also try to identify the strength and weakness in a sets of fine-grained skills(or attributtes) differs from the objective of traditional measurement models.
+
+In CDMs, a student is classified into dichotomous latent skill classes according to the corresponding response of a test and a given *Q matrix* which skills are required to master each item in de la Torre’s study (2009). There are a variety of CDMs built depending on Q-matrix，such as the binary skills model (Haertel, 1984; Haertel & Wiley, 1993),  the “Deterministic Input, Noisy ‘And’ Gate” (DINA) model (Haertel, 1989; Junker & Sijtsma, 2001), the “Deterministic Input, Noisy ‘Or’ Gate” (DINO) model (Templin & Henson, 2006) and so on.
+
+#### The deterministic Noisy and Gate (**DINA**) model
+
+ The deterministic inputs, noisy and gate (**DINA**) model is one simple and widely studied example among cognitive diagnosis models (**CDM**).The DINA model is a conjunctive model, which assumes that responding to an item on an assessment correctly requires an examinee who has all the necessary skills to not slip and an examinee who lacks at least one of the required skills to guess correctly (Junker and Sijtsma, 2001). The DINA model is a relatively simple and interpretable model for only requiring two parameters for each item, i.e. slipping and guessing, which provides good model fit and computation efficiency（Cheng, 2009).
+
+#### The Deterministic Input Noisy Output "OR"gate (**DINO**) model
+
+The Deterministic Input Noisy Output "OR"gate (**DINO**) model is another popular cognitive diagnosis model (**CDM**), which is disjunctive, regarding that the mastery of a subset of the required attributes is a sufficient condition for maximizing the probability of a correct response (Junker and Sijtsma，2001). DINO model successfully provides a different view on how the mastery of attributes and the probability of a correct item response are related, which can be counted as an effective complementary of DINA model (Ko hn et al, 2016).
+
+#### The duality of the DINA Model and the DINO Model
+
+Liu, Xu and Ying (2011) discovered that the DINA and the DINO model share a dual relation. In other words, DINA model and DINO model can be expressed by each other and which of the two models fit the dataset is irrelevant (Mohammad, Nasim, and Wafa, 2020). That is to say, the DINA model and The DINO model tend to be technically similar under appropriate linear transformations, so they are supposed to share similar theoretical properties and proved as a single construct (Ko hn et al, 2016), as a result of which, the estimates of item parameter are identical and what applies to one of them can automatically hold for the other model (Mohammad, Nasim, and Wafa, 2020).
+
+#### Computerized Adaptive Testing(CAT)
+
+Computerized adaptive testing is a kind of test that can reflect one or more potential characteristics of the test person. It is based on the Item Response Theory**(IRT)** to establish the question bank, and the computer automatically selects the test questions according to the ability level of the subjects (Chen, 2012). Finally, the ability of the subjects was estimated with some precision. A typical computerized adaptive testing (**CAT**) system includes fifive major components: a calibrated item bank, a starting rule, an item selection strategy, a scoring method, and a stopping rule. The adaptive feature is the most important part of CAT system, that is, to select different test items for different testers (McGlohen, 2004).Computerized adaptive testing is increasingly making its mark in educational assessments (Wainer and Dorans, 2020). For example, Educational Testing Service**(ETS)** uses CAT in its GRE General Test and GMAT computer tests.
+
+The Cognitive Diagnostic Computerized Adaptive Test (**CD-CAT**) is an extension of CAT whose goal is to classify the level of student mastery based on the attributes that the test is designed to measure (Cheng, 2009). According to Cheng & Yang (2007), these attractive things constitute tasks, subtasks, cognitive processes, or skills for answering each test item. The classification of students' mastery of all attributes is called cognitive diagnosis. And regarding the attributes that students have mastered, teachers can target their teaching interventions to the areas that students need to improve the most. Xu, Chang, and Douglas (2003) then examined specififically two item selection heuristics for cognitive diagnostic computerized adaptive testing (CD-CAT) which based on  Shannon entropy or  “KL”  information.
+
+
+
+### Reference
+
+Chen, P., Xin, T., Wang, C. and Chang, H.-H. (2012). Online Calibration Methods for the DINA Model with Independent Attributes in CD-CAT. *Psychometrika*, *77*(2), 201-222. https://doi.org/10.1007/s11336-012-9255-7 
+
+Cheng, Y. (2009). When Cognitive Diagnosis Meets Computerized Adaptive Testing: CD-CAT. *Psychometrika*, *74*(4), 619-632. https://doi.org/10.1007/s11336-009-9123-2 
+
+Cheng, Y. and Chang, H. (2007). *The modifified maximum global discrimination index method for cognitive diagnostic* *computerized adaptive testing*. Paper presented at the 2007 GMAC Conference on Computerized Adaptive Testing, McLean, USA, June.
+
+De la Torre, J. (2009). DINA model and parameter estimation: a didactic. *Journal of Educational and Behavioral Statis**tics*, *34*, 115–130.
+
+ Junker, B. W. and Sijtsma, K. (2001) ‘Cognitive Assessment Models with Few Assumptions, and Connections with Nonparametric Item Response Theory’, Applied Psychological Measurement, 25(3), pp. 258–272. doi: 10.1177/01466210122032064.
+
+Keskin, B. and Gunay, M. (2021) ‘A Survey On Computerized Adaptive Testing’, *2021 Innovations in Intelligent Systems and Applications Conference (ASYU), Intelligent Systems and Applications Conference (ASYU), 2021 Innovations in*, pp. 1–6. doi:10.1109/ASYU52992.2021.9598952.
+
+Kohn, H.-F. and Chiu, C.-Y. (2016). A Proof of the Duality of the DINA Model and the DINO Model. *Journal of Classification*, *33*(2), 171-184. https://doi.org/10.1007/s00357-016-9202-x 
+
+Lord, F.M., Novick, M.R., & Birnbaum, A. (1968). *Statistical theories of mental test scores.* Addison-Wesley.
+
+Masters, G. N. (1982). A Rasch model for partial credit scoring. *Psychometrika, 47*, 149–174. https://doi.org/10.1007/BF02296272
+
+McGlohen, M.K. (2004). *The application of cognitive diagnosis and computerized adaptive testing to a large-scale**assessment*. Unpublished doctoral thesis, University of Texas at Austin.
+
+Pan, Q., Qin, L. and Kingston, N. (2020). Growth Modeling in a Diagnostic Classification Model (DCM) Framework-A Multivariate Longitudinal Diagnostic Classification Model. *Front Psychol*, *11*, 1714. https://doi.org/10.3389/fpsyg.2020.01714 
+
+Templin, J. (2006). *CDM: cognitive diagnosis modeling using Mplus, user guide*. Retrievable at: http://www.iqgrads.net/jtemplin/downloads/CDM_user_guide.pdf.
+
+Von Davier, M., & Carstensen, C. H. (Eds.). (2007). *Multivariate and mixture distribution Rasch* *models*. New York, NY: Springer.
+
+Wafa, M. N., Hussaini, S. A. M., & Pazhman, J. (2020). Evaluation of Students’ Mathematical Ability in Afghanistan’s Schools Using Cognitive Diagnosis Models. *Eurasia Journal of Mathematics, Science and Technology Education*, *16*(6). https://doi.org/10.29333/ejmste/7834 
+
+Wainer, H. and Dorans, N.J. (2020) *Computerized adaptive testing : a primer*. 2nd ed. Lawrence Erlbaum Associates. Available at: https://search.ebscohost.com/login.aspx?direct=true&db=cat01010a&AN=xjtlu.0000016032&site=eds-live&scope=site (Accessed: 30 July 2022).
+
+Xu, X., Chang, H., & Douglas, J. (2003). *Computerized adaptive testing strategies for cognitive diagnosis*. Paper presented at the annual meeting of National Council on Measurement in Education, Montreal, Canada.
+
+Zanon, C., Hutz, C. S., Yoo, H., & Hambleton, R. K. (2016). An application of item response theory to psychological test development. *Psicologia: Reflexão e Crítica*, *29*(1). https://doi.org/10.1186/s41155-016-0040-x 
