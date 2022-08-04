@@ -1,8 +1,11 @@
 ---
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
     toc_depth: 4
 ---
 
@@ -12,7 +15,7 @@ output:
 
 答对率法：传统方法，难度会因为样本不一样而改变
 
-### Univaraite Item Response Theory (One-parameter Logistic Model)
+### Univaraite Item Response Theory (One-parameter Logistic Model)。
 
 逻辑曲线模拟试题难度 (0,1 response)
 
@@ -141,7 +144,7 @@ library(TAM)
 library(stringi)
 library(tidyverse)
 library(readxl)
-setwd("~/Item_Repsone_Theoryu")
+######setwd("~/Item_Repsone_Theoryu")
 data1<-read_excel('mth017_mid.xlsx')
 data1<-data1 %>% select(2:29)
 data2<- apply(data1,2,function(x) str_sub(x,-1,-1))
