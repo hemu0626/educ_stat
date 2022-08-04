@@ -6,7 +6,7 @@ output:
     toc_depth: 4
 ---
 
-### Psychometrics Literature Review
+### Brief Psychometrics Literature Review
 
 #### Classical Test Theory(CTT)
 
