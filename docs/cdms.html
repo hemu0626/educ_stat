@@ -13,7 +13,7 @@
 
 <title>cdms.knit</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -83,6 +84,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -308,7 +312,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -321,7 +325,7 @@ div.tocify {
   <a href="ctt.html">Literature Review</a>
 </li>
 <li>
-  <a href="irt.html">Item Response Theory</a>
+  <a href="irt.html">CTT and IRT</a>
 </li>
 <li>
   <a href="cdms.html">Cognitive Diagnosis Models</a>
@@ -398,6 +402,66 @@ q_{J1} &amp; \cdots &amp; q_{Jk} &amp; \cdots &amp; q_{JK}
 <p><span class="math display">\[Q=\begin{bmatrix} 1 &amp; 0 &amp; 0\\ 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 1\\ 0 &amp; 1 &amp; 1\end{bmatrix}\]</span> In educational testing, the attributes required for responding correctly to an item might correspond to specific skills that are usually determined by experts.</p>
 <p>Q-matrix indicates whether test item requires that an examinee possess attribute to respond correctly to that item.</p>
 <p><strong>q-vector</strong> <span class="math display">\[q_1=\begin{bmatrix}1 &amp; 0 &amp; 0\end{bmatrix}, \quad q_2=\begin{bmatrix}1 &amp; 1 &amp; 0\end{bmatrix}, \quad \cdots\]</span></p>
+</div>
+<div id="dina-model" class="section level2">
+<h2>DINA Model</h2>
+<div id="basic-model" class="section level3">
+<h3>Basic Model</h3>
+<p>The DINA model (Deterministic Input, Noisy and Gate Model) is suitable for cognitive diagnosis of binary item tests and was originally proposed by Junker and Sijtsma. Here we use <span class="math inline">\(X_{ij}\)</span> to denote the response of the <span class="math inline">\(i^{th}\)</span> student to question <span class="math inline">\(j^{th}\)</span>, where i takes from 1 to I and j takes from 1 to J. <span class="math inline">\(X_{ij}=1\)</span> means that the student answered correctly, <span class="math inline">\(X_{ij}=0\)</span> indicates an incorrect response. Then, the <span class="math inline">\(Q\)</span> matrix is used to describe the cognitive attributes required to answer each question, which is a <span class="math inline">\(J \times K\)</span> matrix consisting of only 0 and 1. <span class="math inline">\(q_{jk}\)</span> indicates whether knowledge <span class="math inline">\(k\)</span> is required to answer question <span class="math inline">\(j^{th}\)</span> correctly, with <span class="math inline">\(q_{jk}=1\)</span> indicating that it is required and <span class="math inline">\(q_{jk}=0\)</span> indicating that it is not required. <span class="math inline">\(\alpha_i=\begin{Bmatrix} \alpha_{ik}\end{Bmatrix}=\begin{Bmatrix} \alpha_{i1},\alpha_{i2},....,\alpha_{ik} \end{Bmatrix}\)</span> denotes the vector of knowledge points possessed by the <span class="math inline">\(i^{th}\)</span> student, which can also be called the student’s attribute mastery mode, which <span class="math inline">\(k\)</span> can include skills, knowledge points or a process. When <span class="math inline">\(k^{th}\)</span> equals 1, i.e.<span class="math inline">\(\alpha_{ik}=1\)</span>, then the student has mastered the cognitive property <span class="math inline">\(k\)</span>; when <span class="math inline">\(k^{th}\)</span> equals 0, i.e.<span class="math inline">\(\alpha_{ik}=0\)</span>, then the student has not mastered the cognitive property <span class="math inline">\(k\)</span>.</p>
+<p>In the DINA model, subjects’ mastery patterns <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(Q\)</span> matrices yield a latent response rector <span class="math inline">\(\eta_{ij}= \begin{Bmatrix} \eta_{ij}\end{Bmatrix}\)</span>, <span class="math inline">\(\eta_{ij}\)</span> is a function of<span class="math inline">\(\begin{Bmatrix}\alpha_{ik}\end{Bmatrix}\)</span> and <span class="math inline">\(\begin{Bmatrix} q_{ik}\end{Bmatrix}\)</span>,<span class="math display">\[\eta_{ij}=\prod_{k = 1}^{k}\alpha_{ik}^{q_{ik}}\]</span> In this formula, if subject <span class="math inline">\(i\)</span> has mastered all the attributes assessed by item <span class="math inline">\(j\)</span>, i.e.<span class="math inline">\(\eta_{ij}=1\)</span>;if subject i has not mastered at least one of the assessment attributes for item <span class="math inline">\(j\)</span>, i.e.<span class="math inline">\(\eta_{ij}=0\)</span>. For ease of presentation, the symbolic descriptions are summarized in the table below.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Symbols</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(X\)</span></td>
+<td align="center">Student test score matrix</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(X_{ij}\)</span></td>
+<td align="center">Student <span class="math inline">\(i&#39;s\)</span> score on test question j</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Q\)</span></td>
+<td align="center">Matrix of knowledge examination</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(q_{jk}\)</span></td>
+<td align="center">Examination of knowledge point <span class="math inline">\(k\)</span> in test <span class="math inline">\(j\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\alpha_i\)</span></td>
+<td align="center">Student <span class="math inline">\(i&#39;s\)</span> knowledge acquisition</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\alpha_{ik}\)</span></td>
+<td align="center">Student <span class="math inline">\(i&#39;s\)</span> mastery of knowledge point <span class="math inline">\(k\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\eta_{ij}\)</span></td>
+<td align="center">Student <span class="math inline">\(i&#39;s\)</span> potential response to test question <span class="math inline">\(j\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>If errors and randomness are excluded, the probability of a correct response to a question is either 0 or 1, and the subject’s response depends only on the interaction between <span class="math inline">\(\alpha\)</span> and this <span class="math inline">\(Q\)</span> matrix. However, there is certainly an element of guesswork in the potential response process, so this potential response vector represents only an ideal response pattern. The ‘noise’ mixed into this process is the ‘error’, referring to the parameters of ‘mistake’ and ‘guesses’, i.e. a subject who has mastered all the attributes required by a question may answer it incorrectly because of a mistake, while those who lacked at least one of the attributes required by a test question were likely to have answered the question correctly by guessing.</p>
+<p>In the DINA model, the mistake and guess parameters of trial <span class="math inline">\(j\)</span> are defined by <span class="math inline">\(s_j\)</span> and <span class="math inline">\(g_j\)</span>, respectively, <span class="math display">\[s_j=P(X_{ij}=0|\eta_{ij}=1)\]</span> <span class="math display">\[g_j=P(X_{ij}=1|\eta_{ij}=0)\]</span> Thus the probability that subject <span class="math inline">\(i\)</span> with mastery mode a answers test question <span class="math inline">\(j\)</span> correctly is <span class="math display">\[P(X_{ij}=1|\alpha_i)=(1-s_j)^{\eta_{ij}}g_i^{1-\eta_{ij}}\]</span>.</p>
+<p>Under the assumption of local independence of item response theory, the likelihood function of the DINA model is <span class="math display">\[L(s,g,\alpha)=\prod_{i = 1}^{I}\prod_{j = 1}^{J}p_j(\alpha_i)^{X_{ij}}[1-p_j(\alpha_i)]^{1-X_{ij}}\]</span></p>
+</div>
+<div id="model-features" class="section level3">
+<h3>Model Features</h3>
+<p>The DINA model is a stochastic conjunctive model, which is ‘stochastic’ because the correct answer is not determined solely by the attributes the subject has mastered, but also by the inclusion of <span class="math inline">\(s_j\)</span> and <span class="math inline">\(g_j\)</span>. This means that mastering all the attributes does not guarantee a correct answer, and not mastering the attributes does not guarantee a wrong answer. The ‘conjunctive’ here implies that all attributes are non-compensatory and that a subject’s lack of mastery of one attribute cannot be compensated for by other attributes, and that a lack of mastery of only one attribute is the same as a lack of mastery of all attributes.</p>
+<p>In addition, the DINA model does not require consideration of hierarchical attribute relationships, and instead of finding the subject’s mastery pattern by classification or discriminant methods, it is estimated by MCMC methods as the parameters to be estimated, which include the subject’s mastery pattern and <span class="math inline">\(s_j\)</span>,<span class="math inline">\(g_j\)</span>.It is worth noting here that the model should satisfy <span class="math inline">\(1-s_j&gt;g_j\)</span>; moreover it is required that <span class="math inline">\(x_j\)</span> and <span class="math inline">\(g_j\)</span> should not be too large, and the limit is generally not greater than 0.4. If it exceeds 0.4, it may indicate that the <span class="math inline">\(Q\)</span> matrix is poorly defined, or that the subjects are using other solution strategies, the model does not fit the data, etc.</p>
+</div>
+<div id="references" class="section level3">
+<h3>references</h3>
+<ol style="list-style-type: decimal">
+<li>JunkerB W,&amp; SijtsmaK.Cognitive assessment models with few assumptions, and connections with nonparametric item response theory[J]. Applied Psychological Measurement, 2001,25(3):258-272</li>
+</ol>
+</div>
 </div>
 
 

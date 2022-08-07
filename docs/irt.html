@@ -11,9 +11,9 @@
 
 
 
-<title>Item Response Theory</title>
+<title>irt.knit</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -83,6 +84,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -308,7 +312,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -318,16 +322,16 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="ctt.html">Classical Test Theory</a>
+  <a href="ctt.html">Literature Review</a>
 </li>
 <li>
-  <a href="irt.html">Item Response Theory</a>
+  <a href="irt.html">CTT and IRT</a>
 </li>
 <li>
   <a href="cdms.html">Cognitive Diagnosis Models</a>
 </li>
 <li>
-  <a href="misc.html">Misc</a>
+  <a href="estimation.html">Corresponding Estimation</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -341,23 +345,49 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Item Response Theory</h1>
 
 </div>
 
 
-<div id="item-difficulty" class="section level2">
-<h2>Item Difficulty</h2>
-<p>答对率法：传统方法，难度会因为样本不一样而改变</p>
+<div id="classical-test-theory" class="section level2">
+<h2>Classical Test Theory</h2>
+<p>Classical test theory, also known as True Score Theory, is mainly to recognize and develop the reliability of psychological tests and assessments in psychological testing</p>
+<div id="assumption" class="section level3">
+<h3>Assumption</h3>
+<ul>
+<li>The correlation between the error and the true score is 0 <span class="math inline">\(\quad \rho(T,E)=0\)</span></li>
+<li>If a person’s certain psychological trait can be repeatedly measured several times with parallel tests, the average of their observed scores will be close to the true score <span class="math inline">\(\quad\)</span> E(X)=T</li>
+<li>The measurement error is random and obeys a normal random variable with the mean value of zero</li>
+<li>No correlation between errors on each parallel test <span class="math inline">\(\quad \rho(E_1,E_2)=0\)</span></li>
+</ul>
 </div>
-<<<<<<< HEAD
-<div id="univaraite-item-response-theory-one-parameter-logistic-model" class="section level3">
-<h3>Univaraite Item Response Theory (One-parameter Logistic Model)。</h3>
-=======
-<div id="univaraite-item-response-theory-one-parameter-logistic-model" class="section level2">
-<h2>Univaraite Item Response Theory (One-parameter Logistic Model)</h2>
->>>>>>> 6ec63c748f6f0c1ca3489b3d9f37e0ed4d4cf2fc
-<p>逻辑曲线模拟试题难度 (0,1 response)</p>
+<div id="ctt-model" class="section level3">
+<h3>CTT Model</h3>
+<p>There is a linear relationship between the observed and true fractions <span class="math display">\[ X = T + E \]</span> where X is observed score, T is Ture score and E is error score. Besides</p>
+<p><em>Variance</em>: <span class="math display">\[ S^2_X= S^2_T+S^2_E \]</span></p>
+</div>
+<div id="limitation" class="section level3">
+<h3>Limitation</h3>
+<ul>
+<li>The sample dependence of statistics, the estimation of validity, reliability, difficulty, discrimination, and other parameters is very dependent on the sample, and the representativeness of the sample to the whole must be emphasized</li>
+<li>Test dependence of measurement scores, because it is difficult to establish “parallel papers”, the scores on two different tests measuring the same ability are not comparable.</li>
+<li>Imprecision of reliability estimation. CTT assumes that the measurement error is the same for subjects of different ability levels, but in fact, a test can only be administered to subjects of comparable ability level and test difficulty to obtain relatively high measurement accuracy.</li>
+</ul>
+</div>
+</div>
+<div id="item-response-theory" class="section level2">
+<h2>Item Response Theory</h2>
+<p>Item Response Theory (IRT), also known as Latent Trait Theory or Latent Trait Model, is a modern psychometric theory that uses item characteristics to estimate latent traits in response to the limitations of CTT.</p>
+<div id="assumption-1" class="section level3">
+<h3>Assumption</h3>
+<ul>
+<li>Unidimensionality of ability hypothesis - meaning that all items comprising a given test measure the same latent trait.</li>
+<li>Local independence hypothesis - meaning that no correlation exists between items for a given subject.</li>
+<li>Item characteristic curve hypothesis - refers to a model of the functional relationship between the probability of a subject’s correct response to an item and his or her ability.</li>
+</ul>
+</div>
+<div id="item-difficulty-and-item-characteristic-cure" class="section level3">
+<h3>Item Difficulty and Item Characteristic Cure</h3>
 <p>Logistic Cure or Item characteristic cure (ICC), is a function relating the probability of correct response to the ability scale.</p>
 <p><span class="math display">\[P_i(\theta)=P(U_i=1|\theta)\]</span></p>
 <p>To include the covariates</p>
@@ -367,17 +397,12 @@ div.tocify {
 <p><span class="math display">\[P_1(\theta)=\frac{e^{\theta+1}}{1+e^{\theta+1}}, \quad P_2(\theta)=\frac{e^{\theta-1}}{1+e^{\theta-1}}\]</span> 一条逻辑曲线就是一套试题</p>
 <p>When <span class="math inline">\(\theta=b_i\)</span>, we say that the ability match the difficulty of the tests and we say <span class="math inline">\(P_i=0.5\)</span>.</p>
 <p>In practice, we set <span class="math inline">\(b_i \in (-3,3)\)</span>. The larger <span class="math inline">\(b_i\)</span>, the harder item.</p>
-<div id="item-person-map" class="section level3">
-<h3>Item-person Map</h3>
-<p>把学生能力和试题对比，差生答对难题的概率很低</p>
-<p>可以和古典的 CTT对比</p>
 </div>
 <div id="outfit" class="section level3">
 <h3>Outfit</h3>
 <p>Does the model fit the data well?</p>
-<p><em>Residual-based fit statistics</em> 残差验证不好</p>
+<p><em>Residual-based fit statistics</em></p>
 <p><span class="math display">\[P_i(\theta)=P(U_i=1|\theta), \quad \mathbb{E}(U_{ji})=P(U_i=1|\theta=\theta_j)\]</span></p>
-<p>试图标准化 标注差</p>
 <p><em>Variance</em> (Bernulli Distribution)</p>
 <p><span class="math display">\[Var(U_{ji})=P(U_i=1|\theta_j)(1-P(U_i=1|\theta_j))=0.05\times 0.95=0.0475\]</span> 假设A每次答对的概率是0.05，所以variance很小</p>
 <p>如果B能力更强，答对的概率是0.43，那么对应的variance会是 <span class="math display">\[Var(U_{ji})=P(U_i=1|\theta_j)(1-P(U_i=1|\theta_j))=0.43\times 0.57=0.2451\]</span></p>
@@ -395,16 +420,11 @@ div.tocify {
 <li><span class="math inline">\(outfit &gt; 2\)</span>, bad question, remove</li>
 <li><span class="math inline">\(1.5 - 2.0\)</span>, not too bad, acceptable</li>
 <li><span class="math inline">\(0.5 - 1.5\)</span>, good question</li>
-<li><span class="math inline">\(&lt;0.5\)</span>, not very much influntial, acceptable, 送分题的意思？（有一种例外，鉴别度很高的试题，简单的全对，难的全错）</li>
-</ul>
-<p><em>Reference</em></p>
-<ul>
-<li>Linacre (2006)</li>
+<li><span class="math inline">\(&lt;0.5\)</span>, not very much influential, acceptable</li>
 </ul>
 </div>
-</div>
-<div id="two-parameter-logistic-model" class="section level2">
-<h2>Two-parameter logistic model</h2>
+<div id="two-parameter-logistic-model" class="section level3">
+<h3>Two-parameter logistic model</h3>
 <p>单参数模型只是进行了平移，并没有改变曲线的形状 <span class="math display">\[P_i(\theta)=\frac{e^{\theta-b_i}}{1+e^{\theta-bi}}\]</span></p>
 <p>双参数给了一个shape parameter</p>
 <p><span class="math display">\[P_i(\theta)=\frac{e^{a_i(\theta-b_i)}}{1+e^{a_i(\theta-b_i)}}\]</span></p>
@@ -413,20 +433,20 @@ div.tocify {
 <li><span class="math inline">\(b_i\)</span> is the item difficulty parameter.</li>
 </ul>
 </div>
-<div id="rasch-model" class="section level2">
-<h2>Rasch Model</h2>
+<div id="rasch-model" class="section level3">
+<h3>Rasch Model</h3>
 <p>In the Rasch model, the discrinimation parameters of two-parameter logistic models are set to 1, which are equal to the one-parameter logistic models, or they are set to the same value <span class="math inline">\(a&gt;0\)</span> <span class="math display">\[P_i(\theta)=\frac{e^{a_i(\theta-b_i)}}{1+e^{a_i(\theta-b_i)}}\]</span></p>
 </div>
-<div id="a-drawback-to-cttuirt" class="section level2">
-<h2>A drawback to CTT/UIRT</h2>
+<div id="a-drawback-to-cttuirt" class="section level3">
+<h3>A drawback to CTT/UIRT</h3>
 <p>Classical Test Theory and Item Response Theory</p>
 <p>Remedial Course</p>
 <p>In traditional method such as classical test theory (CTT)/unidimensional item response theory (UIRT), teachers only use total scores abilities to compare students’ learning performance.</p>
 <p>Moreover, some students may have the same total score but their mastering skills are differet.</p>
 <p>In recent remedial teaching, most teachers use the same learning materials for the students whose total score below than a threshold. 缺点总结，如何改进呢？</p>
 </div>
-<div id="three-parameter-logistic-model" class="section level2">
-<h2>Three-parameter Logistic Model</h2>
+<div id="three-parameter-logistic-model" class="section level3">
+<h3>Three-parameter Logistic Model</h3>
 <p>Guessing on an item 有些题是可以猜的IRT可以考虑猜的问题。可以再加一个参数</p>
 <p><span class="math display">\[[0,1] \rightarrow [0.2,1]\]</span></p>
 <p><span class="math display">\[P_i(\theta)=c_i+(1-c_i)\frac{e^{a_i(\theta-b_i)}}{1+e^{a_i(\theta-b_i)}}\]</span></p>
@@ -436,18 +456,16 @@ div.tocify {
 <li><span class="math inline">\(c_i\)</span> guessing parameter</li>
 </ul>
 </div>
-<div id="mth017-midterm-example" class="section level2">
-<h2>MTH017 Midterm Example</h2>
+<div id="mth017-midterm-example" class="section level3">
+<h3>MTH017 Midterm Example</h3>
 <pre class="r"><code>library(CTT)
 library(TAM)
 library(stringi)
 library(tidyverse)
 library(readxl)
-<<<<<<< HEAD
 ######setwd(&quot;~/Item_Repsone_Theoryu&quot;)
-=======
+#=======
 #setwd(&quot;~/Item_Repsone_Theoryu&quot;)
->>>>>>> 6ec63c748f6f0c1ca3489b3d9f37e0ed4d4cf2fc
 data1&lt;-read_excel(&#39;mth017_mid.xlsx&#39;)
 data1&lt;-data1 %&gt;% select(2:29)
 data2&lt;- apply(data1,2,function(x) str_sub(x,-1,-1))
@@ -559,15 +577,7 @@ logit1&lt;-tam(CTT_score$scored)</code></pre>
 ## Infit   Infit 0.9975171 0.07384753
 ## 
 ## $time
-<<<<<<< HEAD
-## [1] &quot;2022-08-07 19:08:55 CST&quot; &quot;2022-08-07 19:08:55 CST&quot;
-=======
-<<<<<<< HEAD
-## [1] &quot;2022-07-11 16:09:48 CST&quot; &quot;2022-07-11 16:09:49 CST&quot;
-=======
-## [1] &quot;2022-01-01 03:03:17 CST&quot; &quot;2022-01-01 03:03:17 CST&quot;
->>>>>>> 6ec63c748f6f0c1ca3489b3d9f37e0ed4d4cf2fc
->>>>>>> 8f3810addf9025cb3da1c3624e2a5e05cbdd710a
+## [1] &quot;2022-08-07 19:37:14 CST&quot; &quot;2022-08-07 19:37:14 CST&quot;
 ## 
 ## $CALL
 ## msq.itemfit(object = logit1)
@@ -627,6 +637,7 @@ for(i in 1:4){
 plot(logit2,items=i)
 }</code></pre>
 <p><img src="irt_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
 </div>
 
 

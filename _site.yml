@@ -5,7 +5,7 @@ navbar:
   left:
     - text: "Literature Review"
       href: ctt.html
-    - text: "Item Response Theory"
+    - text: "CTT and IRT"
       href: irt.html
     - text: "Cognitive Diagnosis Models"
       href: cdms.html

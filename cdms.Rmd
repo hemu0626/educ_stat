@@ -44,3 +44,44 @@ Q-matrix indicates whether test item requires that an examinee possess attribute
 **q-vector**
 $$q_1=\begin{bmatrix}1 & 0 & 0\end{bmatrix}, \quad q_2=\begin{bmatrix}1 & 1 & 0\end{bmatrix}, \quad \cdots$$
 
+## DINA Model
+
+### Basic Model
+
+The DINA model (Deterministic Input, Noisy and Gate Model) is suitable for cognitive diagnosis of binary item tests and was originally proposed by Junker and Sijtsma. Here we use $X_{ij}$ to denote the response of the $i^{th}$ student to question $j^{th}$, where i takes from 1 to I and j takes from 1 to J. $X_{ij}=1$ means that the student answered correctly, $X_{ij}=0$ indicates an incorrect response. Then, the $Q$ matrix is used to describe the cognitive attributes required to answer each question, which is a $J \times K$ matrix consisting of only 0 and 1. $q_{jk}$ indicates whether knowledge $k$ is required to answer question $j^{th}$ correctly, with $q_{jk}=1$ indicating that it is required and $q_{jk}=0$ indicating that it is not required. $\alpha_i=\begin{Bmatrix} \alpha_{ik}\end{Bmatrix}=\begin{Bmatrix} \alpha_{i1},\alpha_{i2},....,\alpha_{ik} \end{Bmatrix}$ denotes the vector of knowledge points possessed by the $i^{th}$ student, which can also be called the student's attribute mastery mode, which $k$ can include skills, knowledge points or a process. When $k^{th}$ equals 1, i.e.$\alpha_{ik}=1$, then the student has mastered the cognitive property $k$; when $k^{th}$ equals 0, i.e.$\alpha_{ik}=0$, then the student has not mastered the cognitive property $k$.
+
+In the DINA model, subjects' mastery patterns $\alpha$ and $Q$ matrices yield a latent response rector $\eta_{ij}= \begin{Bmatrix} \eta_{ij}\end{Bmatrix}$, $\eta_{ij}$ is a function of$\begin{Bmatrix}\alpha_{ik}\end{Bmatrix}$ and $\begin{Bmatrix} q_{ik}\end{Bmatrix}$,$$\eta_{ij}=\prod_{k = 1}^{k}\alpha_{ik}^{q_{ik}}$$ In this formula, if subject $i$ has mastered all the attributes assessed by item $j$, i.e.$\eta_{ij}=1$;if subject i has not mastered at least one of the assessment attributes for item $j$, i.e.$\eta_{ij}=0$. For ease of presentation, the symbolic descriptions are summarized in the table below.
+
+|Symbols|Description|
+|:-:|:-:|
+|$X$|Student test score matrix|
+|$X_{ij}$|Student $i's$ score on test question j|
+|$Q$|Matrix of knowledge examination|
+|$q_{jk}$|Examination of knowledge point $k$ in test $j$|
+|$\alpha_i$|Student $i's$ knowledge acquisition|
+|$\alpha_{ik}$|Student $i's$ mastery of knowledge point $k$|
+|$\eta_{ij}$|Student $i's$ potential response to test question $j$|
+
+If errors and randomness are excluded, the probability of a correct response to a question is either 0 or 1, and the subject's response depends only on the interaction between $\alpha$ and this $Q$ matrix. However, there is certainly an element of guesswork in the potential response process, so this potential response vector represents only an ideal response pattern. The 'noise' mixed into this process is the 'error', referring to the parameters of 'mistake' and 'guesses', i.e. a subject who has mastered all the attributes required by a question may answer it incorrectly because of a mistake, while those who lacked at least one of the attributes required by a test question were likely to have answered the question correctly by guessing.
+
+In the DINA model, the mistake and guess parameters of trial $j$ are defined by $s_j$ and $g_j$, respectively,
+$$s_j=P(X_{ij}=0|\eta_{ij}=1)$$
+$$g_j=P(X_{ij}=1|\eta_{ij}=0)$$
+Thus the probability that subject $i$ with mastery mode a answers test question $j$ correctly is
+$$P(X_{ij}=1|\alpha_i)=(1-s_j)^{\eta_{ij}}g_i^{1-\eta_{ij}}$$.
+
+
+Under the assumption of local independence of item response theory, the likelihood function of the DINA model is
+$$L(s,g,\alpha)=\prod_{i = 1}^{I}\prod_{j = 1}^{J}p_j(\alpha_i)^{X_{ij}}[1-p_j(\alpha_i)]^{1-X_{ij}}$$
+
+### Model Features
+
+The DINA model is a stochastic conjunctive model, which is 'stochastic' because the correct answer is not determined solely by the attributes the subject has mastered, but also by the inclusion of $s_j$ and $g_j$. This means that mastering all the attributes does not guarantee a correct answer, and not mastering the attributes does not guarantee a wrong answer. The 'conjunctive' here implies that all attributes are non-compensatory and that a subject's lack of mastery of one attribute cannot be compensated for by other attributes, and that a lack of mastery of only one attribute is the same as a lack of mastery of all attributes.
+
+In addition, the DINA model does not require consideration of hierarchical attribute relationships, and instead of finding the subject's mastery pattern by classification or discriminant methods, it is estimated by MCMC methods as the parameters to be estimated, which include the subject's mastery pattern and $s_j$,$g_j$.It is worth noting here that the model should satisfy $1-s_j>g_j$; moreover it is required that $x_j$ and $g_j$ should not be too large, and the limit is generally not greater than 0.4. If it exceeds 0.4, it may indicate that the $Q$ matrix is poorly defined, or that the subjects are using other solution strategies, the model does not fit the data, etc.
+
+### references
+
+1. JunkerB W,& SijtsmaK.Cognitive assessment models with few assumptions, and connections with nonparametric item response theory[J]. Applied Psychological Measurement, 2001,25(3):258-272
+
+
