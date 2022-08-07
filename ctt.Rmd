@@ -63,36 +63,36 @@ The Cognitive Diagnostic Computerized Adaptive Test (**CD-CAT**) is an extension
 
 ### Reference
 
-Chen, P., Xin, T., Wang, C. and Chang, H.-H. (2012). Online Calibration Methods for the DINA Model with Independent Attributes in CD-CAT. *Psychometrika*, *77*(2), 201-222. https://doi.org/10.1007/s11336-012-9255-7 
++ Chen, P., Xin, T., Wang, C. and Chang, H.-H. (2012). Online Calibration Methods for the DINA Model with Independent Attributes in CD-CAT. *Psychometrika*, *77*(2), 201-222. https://doi.org/10.1007/s11336-012-9255-7 
 
-Cheng, Y. (2009). When Cognitive Diagnosis Meets Computerized Adaptive Testing: CD-CAT. *Psychometrika*, *74*(4), 619-632. https://doi.org/10.1007/s11336-009-9123-2 
++ Cheng, Y. (2009). When Cognitive Diagnosis Meets Computerized Adaptive Testing: CD-CAT. *Psychometrika*, *74*(4), 619-632. https://doi.org/10.1007/s11336-009-9123-2 
 
-Cheng, Y. and Chang, H. (2007). *The modifified maximum global discrimination index method for cognitive diagnostic* *computerized adaptive testing*. Paper presented at the 2007 GMAC Conference on Computerized Adaptive Testing, McLean, USA, June.
++ Cheng, Y. and Chang, H. (2007). *The modifified maximum global discrimination index method for cognitive diagnostic* *computerized adaptive testing*. Paper presented at the 2007 GMAC Conference on Computerized Adaptive Testing, McLean, USA, June.
 
-De la Torre, J. (2009). DINA model and parameter estimation: a didactic. *Journal of Educational and Behavioral Statis**tics*, *34*, 115–130.
++ De la Torre, J. (2009). DINA model and parameter estimation: a didactic. *Journal of Educational and Behavioral Statis**tics*, *34*, 115–130.
 
- Junker, B. W. and Sijtsma, K. (2001) ‘Cognitive Assessment Models with Few Assumptions, and Connections with Nonparametric Item Response Theory’, Applied Psychological Measurement, 25(3), pp. 258–272. doi: 10.1177/01466210122032064.
++ Junker, B. W. and Sijtsma, K. (2001) ‘Cognitive Assessment Models with Few Assumptions, and Connections with Nonparametric Item Response Theory’, Applied Psychological Measurement, 25(3), pp. 258–272. doi: 10.1177/01466210122032064.
 
-Keskin, B. and Gunay, M. (2021) ‘A Survey On Computerized Adaptive Testing’, *2021 Innovations in Intelligent Systems and Applications Conference (ASYU), Intelligent Systems and Applications Conference (ASYU), 2021 Innovations in*, pp. 1–6. doi:10.1109/ASYU52992.2021.9598952.
++ Keskin, B. and Gunay, M. (2021) ‘A Survey On Computerized Adaptive Testing’, *2021 Innovations in Intelligent Systems and Applications Conference (ASYU), Intelligent Systems and Applications Conference (ASYU), 2021 Innovations in*, pp. 1–6. doi:10.1109/ASYU52992.2021.9598952.
 
-Kohn, H.-F. and Chiu, C.-Y. (2016). A Proof of the Duality of the DINA Model and the DINO Model. *Journal of Classification*, *33*(2), 171-184. https://doi.org/10.1007/s00357-016-9202-x 
++ Kohn, H.-F. and Chiu, C.-Y. (2016). A Proof of the Duality of the DINA Model and the DINO Model. *Journal of Classification*, *33*(2), 171-184. https://doi.org/10.1007/s00357-016-9202-x 
 
-Lord, F.M., Novick, M.R., & Birnbaum, A. (1968). *Statistical theories of mental test scores.* Addison-Wesley.
++ Lord, F.M., Novick, M.R., & Birnbaum, A. (1968). *Statistical theories of mental test scores.* Addison-Wesley.
 
-Masters, G. N. (1982). A Rasch model for partial credit scoring. *Psychometrika, 47*, 149–174. https://doi.org/10.1007/BF02296272
++ Masters, G. N. (1982). A Rasch model for partial credit scoring. *Psychometrika, 47*, 149–174. https://doi.org/10.1007/BF02296272
 
-McGlohen, M.K. (2004). *The application of cognitive diagnosis and computerized adaptive testing to a large-scale**assessment*. Unpublished doctoral thesis, University of Texas at Austin.
++ McGlohen, M.K. (2004). *The application of cognitive diagnosis and computerized adaptive testing to a large-scale**assessment*. Unpublished doctoral thesis, University of Texas at Austin.
 
-Pan, Q., Qin, L. and Kingston, N. (2020). Growth Modeling in a Diagnostic Classification Model (DCM) Framework-A Multivariate Longitudinal Diagnostic Classification Model. *Front Psychol*, *11*, 1714. https://doi.org/10.3389/fpsyg.2020.01714 
++ Pan, Q., Qin, L. and Kingston, N. (2020). Growth Modeling in a Diagnostic Classification Model (DCM) Framework-A Multivariate Longitudinal Diagnostic Classification Model. *Front Psychol*, *11*, 1714. https://doi.org/10.3389/fpsyg.2020.01714 
 
-Templin, J. (2006). *CDM: cognitive diagnosis modeling using Mplus, user guide*. Retrievable at: http://www.iqgrads.net/jtemplin/downloads/CDM_user_guide.pdf.
++ Templin, J. (2006). *CDM: cognitive diagnosis modeling using Mplus, user guide*. Retrievable at: http://www.iqgrads.net/jtemplin/downloads/CDM_user_guide.pdf.
 
-Von Davier, M., & Carstensen, C. H. (Eds.). (2007). *Multivariate and mixture distribution Rasch* *models*. New York, NY: Springer.
++ Von Davier, M., & Carstensen, C. H. (Eds.). (2007). *Multivariate and mixture distribution Rasch* *models*. New York, NY: Springer.
 
-Wafa, M. N., Hussaini, S. A. M., & Pazhman, J. (2020). Evaluation of Students’ Mathematical Ability in Afghanistan’s Schools Using Cognitive Diagnosis Models. *Eurasia Journal of Mathematics, Science and Technology Education*, *16*(6). https://doi.org/10.29333/ejmste/7834 
++ Wafa, M. N., Hussaini, S. A. M., & Pazhman, J. (2020). Evaluation of Students’ Mathematical Ability in Afghanistan’s Schools Using Cognitive Diagnosis Models. *Eurasia Journal of Mathematics, Science and Technology Education*, *16*(6). https://doi.org/10.29333/ejmste/7834 
 
-Wainer, H. and Dorans, N.J. (2020) *Computerized adaptive testing : a primer*. 2nd ed. Lawrence Erlbaum Associates. Available at: https://search.ebscohost.com/login.aspx?direct=true&db=cat01010a&AN=xjtlu.0000016032&site=eds-live&scope=site (Accessed: 30 July 2022).
++ Wainer, H. and Dorans, N.J. (2020) *Computerized adaptive testing : a primer*. 2nd ed. Lawrence Erlbaum Associates. Available at: https://search.ebscohost.com/login.aspx?direct=true&db=cat01010a&AN=xjtlu.0000016032&site=eds-live&scope=site (Accessed: 30 July 2022).
 
-Xu, X., Chang, H., & Douglas, J. (2003). *Computerized adaptive testing strategies for cognitive diagnosis*. Paper presented at the annual meeting of National Council on Measurement in Education, Montreal, Canada.
++ Xu, X., Chang, H., & Douglas, J. (2003). *Computerized adaptive testing strategies for cognitive diagnosis*. Paper presented at the annual meeting of National Council on Measurement in Education, Montreal, Canada.
 
-Zanon, C., Hutz, C. S., Yoo, H., & Hambleton, R. K. (2016). An application of item response theory to psychological test development. *Psicologia: Reflexão e Crítica*, *29*(1). https://doi.org/10.1186/s41155-016-0040-x 
++ Zanon, C., Hutz, C. S., Yoo, H., & Hambleton, R. K. (2016). An application of item response theory to psychological test development. *Psicologia: Reflexão e Crítica*, *29*(1). https://doi.org/10.1186/s41155-016-0040-x 

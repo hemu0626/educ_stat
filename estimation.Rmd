@@ -336,9 +336,9 @@ Shannon Entropy is used to measure the uncertainty of one probability distributi
 
   + Casella,G.,& Berger R.L.,(2002). Statistical Inference.USA.RR Donnelley
 
-  + Chang, H. H. (2015). \textit{Psychometrics behind computerized adaptive testing}. Psychometrika, 80(1),1–20.
+  + Chang, H. H. (2015). {Psychometrics behind computerized adaptive testing}. Psychometrika, 80(1),1–20.
 
-  + Chang, H. H., & Ying, Z. (1999). \textit{a-Stratified multistage computerized adaptive testing. Applied
+  + Chang, H. H., & Ying, Z. (1999). {a-Stratified multistage computerized adaptive testing. Applied
 Psychological Measurement}, 23(3), 211–222.
 
   + Chang, H.-H., & Ying, Z.(1996) 'A Global Information Approach to Computerized Adaptive Testing', 
@@ -349,9 +349,9 @@ Proceedings of the 2009 GMAC Conference on Computerized Adaptive Testing. Retrie
 
   + Cheng, Y (2009) 'When Cognitive Diagnose Meets Computerized Adaptive Testing:CD-CAT', _Psychometrika_,VOL. 74, NO. 4, 619–632
 
-  + Cheng, Y., Chang, H. H., & Yi, Q. (2007). \textit{Two-phase item selection procedure for flexible content balancing in CAT}. Applied Psychological Measurement, 31(6), 467–482.
+  + Cheng, Y., Chang, H. H., & Yi, Q. (2007). {Two-phase item selection procedure for flexible content balancing in CAT}. Applied Psychological Measurement, 31(6), 467–482.
 
-  + Davier, M.V. et al. (2019). \textit{Methodology of Educational Measurement and Assessment}. Available at: https://doi.org/10.1007/978-3-030-05584-4 (Downloaded: 18 July 2022)
+  + Davier, M.V. et al. (2019). {Methodology of Educational Measurement and Assessment}. Available at: https://doi.org/10.1007/978-3-030-05584-4 (Downloaded: 18 July 2022)
 
   + Henson, R. & Douglas J. (2005). Test construction for cognitive diagnosis. _Applied Psychological Measurement_, 29, 262-277.
 
@@ -360,12 +360,12 @@ Proceedings of the 2009 GMAC Conference on Computerized Adaptive Testing. Retrie
   + McGlohen, M.K., & Chang, H. (2008). Combining computer adaptive testing technology with cognitively diagnostic
 assessment. _Behavioral Research Methods_, 40, 808–821.
 
-  + Thissen, D., & Mislevy, R. J. (2000). \textit{Testing algorithm. In H. Wainer & N. J. Dorans (Eds.),
+  + Thissen, D., & Mislevy, R. J. (2000). {Testing algorithm. In H. Wainer & N. J. Dorans (Eds.),
 Computerized adaptive testing: A primer}. Hillsdale, NJ: Erlbarm.
 
-  + Van der Linden, W. J., & Glas, C. A. W. (2000). \textit{Capitalization on item calibration error in adaptive testing}. Applied Measurement in Education, 13(1), 35–53.
+  + Van der Linden, W. J., & Glas, C. A. W. (2000). {Capitalization on item calibration error in adaptive testing}. Applied Measurement in Education, 13(1), 35–53.
 
   + Xu, X., Chang, H., & Douglas, J. (2005). Computerized adaptive testing strategies for cognitive diagnosis. Paper presented at the annual meeting of National Council on Measurement in
 Education, Montreal, Canada.
 
-  + Yi, Q., & Chang, H. H. (2003). \textit{a-Stratified CAT design with content blocking}. British Journal of Mathematical and Statistical Psychology, 56(2), 359–378.
+  + Yi, Q., & Chang, H. H. (2003). {a-Stratified CAT design with content blocking}. British Journal of Mathematical and Statistical Psychology, 56(2), 359–378.
