@@ -9,6 +9,8 @@ navbar:
       href: irt.html
     - text: "Cognitive Diagnosis Models"
       href: cdms.html
+    - text: "Corresponding Estimation"
+      href: estimation.html
     - text: "Misc"
       href: misc.html
 output:

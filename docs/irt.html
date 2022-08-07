@@ -350,8 +350,13 @@ div.tocify {
 <h2>Item Difficulty</h2>
 <p>答对率法：传统方法，难度会因为样本不一样而改变</p>
 </div>
+<<<<<<< HEAD
+<div id="univaraite-item-response-theory-one-parameter-logistic-model" class="section level3">
+<h3>Univaraite Item Response Theory (One-parameter Logistic Model)。</h3>
+=======
 <div id="univaraite-item-response-theory-one-parameter-logistic-model" class="section level2">
 <h2>Univaraite Item Response Theory (One-parameter Logistic Model)</h2>
+>>>>>>> 6ec63c748f6f0c1ca3489b3d9f37e0ed4d4cf2fc
 <p>逻辑曲线模拟试题难度 (0,1 response)</p>
 <p>Logistic Cure or Item characteristic cure (ICC), is a function relating the probability of correct response to the ability scale.</p>
 <p><span class="math display">\[P_i(\theta)=P(U_i=1|\theta)\]</span></p>
@@ -438,7 +443,11 @@ library(TAM)
 library(stringi)
 library(tidyverse)
 library(readxl)
+<<<<<<< HEAD
+######setwd(&quot;~/Item_Repsone_Theoryu&quot;)
+=======
 #setwd(&quot;~/Item_Repsone_Theoryu&quot;)
+>>>>>>> 6ec63c748f6f0c1ca3489b3d9f37e0ed4d4cf2fc
 data1&lt;-read_excel(&#39;mth017_mid.xlsx&#39;)
 data1&lt;-data1 %&gt;% select(2:29)
 data2&lt;- apply(data1,2,function(x) str_sub(x,-1,-1))
@@ -550,7 +559,15 @@ logit1&lt;-tam(CTT_score$scored)</code></pre>
 ## Infit   Infit 0.9975171 0.07384753
 ## 
 ## $time
+<<<<<<< HEAD
 ## [1] &quot;2022-08-07 19:08:55 CST&quot; &quot;2022-08-07 19:08:55 CST&quot;
+=======
+<<<<<<< HEAD
+## [1] &quot;2022-07-11 16:09:48 CST&quot; &quot;2022-07-11 16:09:49 CST&quot;
+=======
+## [1] &quot;2022-01-01 03:03:17 CST&quot; &quot;2022-01-01 03:03:17 CST&quot;
+>>>>>>> 6ec63c748f6f0c1ca3489b3d9f37e0ed4d4cf2fc
+>>>>>>> 8f3810addf9025cb3da1c3624e2a5e05cbdd710a
 ## 
 ## $CALL
 ## msq.itemfit(object = logit1)

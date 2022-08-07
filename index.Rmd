@@ -9,3 +9,7 @@ output:
 ### Outline 
 
 This is project website for summarizing item response theory.
+
+#### Surf Member and contribution
+
++ Shanzi Bao, Xuetao Feng in Literature Review
