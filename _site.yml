@@ -11,8 +11,6 @@ navbar:
       href: cdms.html
     - text: "Corresponding Estimation"
       href: estimation.html
-    - text: "Misc"
-      href: misc.html
 output:
   html_document:
     theme: cosmo

@@ -1,5 +1,4 @@
 ---
-title: "Item Response Theory"
 output:
   pdf_document:
     toc: yes
