@@ -3,7 +3,7 @@ output_dir: "docs"
 navbar:
   title: "Item Response Theory"
   left:
-    - text: "Classical Test Theory"
+    - text: "Literature Review"
       href: ctt.html
     - text: "Item Response Theory"
       href: irt.html
