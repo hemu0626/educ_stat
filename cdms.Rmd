@@ -82,6 +82,6 @@ In addition, the DINA model does not require consideration of hierarchical attri
 
 ### references
 
-1. JunkerB W,& SijtsmaK.Cognitive assessment models with few assumptions, and connections with nonparametric item response theory[J]. Applied Psychological Measurement, 2001,25(3):258-272
+  + JunkerB W,& SijtsmaK.Cognitive assessment models with few assumptions, and connections with nonparametric item response theory[J]. Applied Psychological Measurement, 2001,25(3):258-272
 
 

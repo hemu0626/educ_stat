@@ -8,8 +8,8 @@ output:
 
 ### Outline 
 
-This is project website for summarizing item response theory.
+This is project website for summarizing classical test theory, item response theory and basic cognitive diagnosis models.
 
-#### Surf Member and contribution
+#### Surf Member and Contribution
 
-+ Shanzi Bao, Xuetao Feng in Literature Review
++ Shanzi Bao, Xuetao Feng, Yu Zhong, Minjie Yang, Yiming Shao, Ruofan Mao and Zhaoxin Yu from XJTLU
