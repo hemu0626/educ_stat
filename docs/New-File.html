@@ -9,9 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Mu He" />
 
 
-<title>cdms.knit</title>
+<title>New file</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,9 +30,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -221,69 +219,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -291,16 +226,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -341,72 +266,35 @@ div.tocify {
 
 
 
+<h1 class="title toc-ignore">New file</h1>
+<h4 class="author">Mu He</h4>
+<h4 class="date">27/06/2022</h4>
 
 </div>
 
 
-<div id="cognitive-diagnosis-models" class="section level2">
-<h2>Cognitive Diagnosis Models</h2>
-<p>Cognitive diagnosis models (CDMs) are special types of restricted latent class model that have received a great deal of attention in the past several years.</p>
-<p>CDMs try to identify if an examinee has mastered specific skills required to solve an item.</p>
-<p>CDMs try to identify the strength and weakness in a sets of fine-grained skills(or attributtes) differs from the objective of traditional measurement models.</p>
-<p>In CDMs, a student is classified into dichotomous latent skill classes according to the corresponding response of a test and a given <em>Q matrix</em> which skills are required to master each item</p>
-<table>
-<thead>
-<tr class="header">
-<th>Q-matrix</th>
-<th>Add</th>
-<th>Sub</th>
-<th>Multiply</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(7+2\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(3+4-2\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\((5\times 2)+4\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\((3\times 2)-2\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Q-matrix</strong></p>
-<p><span class="math display">\[Q=\begin{bmatrix} q_{11} &amp; \cdots &amp; q_{1k} &amp;\cdots &amp;q_{1K}\\ \vdots &amp; &amp; \vdots &amp; &amp;\vdots\\
-q_{j1}&amp; \cdots &amp; q_{jk} &amp; \cdots &amp; q_{jK}\\
-\vdots &amp; &amp; \vdots &amp; &amp;\vdots\\
-q_{J1} &amp; \cdots &amp; q_{Jk} &amp; \cdots &amp; q_{JK}
-\end{bmatrix}\]</span></p>
-<p>where <span class="math inline">\(J\)</span> means the number of items and <span class="math inline">\(K\)</span> means the number of attributes.</p>
-<p>In our case,</p>
-<p><span class="math display">\[Q=\begin{bmatrix} 1 &amp; 0 &amp; 0\\ 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 1\\ 0 &amp; 1 &amp; 1\end{bmatrix}\]</span> In educational testing, the attributes required for responding correctly to an item might correspond to specific skills that are usually determined by experts.</p>
-<p>Q-matrix indicates whether test item requires that an examinee possess attribute to respond correctly to that item.</p>
-<p><strong>q-vector</strong> <span class="math display">\[q_1=\begin{bmatrix}1 &amp; 0 &amp; 0\end{bmatrix}, \quad q_2=\begin{bmatrix}1 &amp; 1 &amp; 0\end{bmatrix}, \quad \cdots\]</span></p>
+<div id="r-markdown" class="section level2">
+<h2>R Markdown</h2>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<pre class="r"><code>summary(cars)</code></pre>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
 </div>
-<div id="section" class="section level2">
-<h2>1</h2>
+<div id="including-plots" class="section level2">
+<h2>Including Plots</h2>
+<p>You can also embed plots, for example:</p>
+<p><img src="New-File_files/figure-html/pressure-1.png" width="672" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -439,35 +327,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3,h4",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
