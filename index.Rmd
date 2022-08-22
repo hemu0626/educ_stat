@@ -28,7 +28,7 @@ The basic psychometrics models will be introduced through three popular models:
 + Item Response Theory
 + Cognitive Diagnosis Models
 
-#### Classical Test Theory (CTT), 
+#### Classical Test Theory (CTT) 
 
 Classical Test Theory sometimes called the true score model, is the mathematics behind creating and answering tests and measurement scales. The goal of CTT is to improve tests, particularly the reliability and validity of tests.
 Classical Test Theory assumes that each person has an innate true score. It can be summed up with an equation:
