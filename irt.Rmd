@@ -155,7 +155,7 @@ $$P_i(\theta)=c_i+(1-c_i)\frac{e^{a_i(\theta-b_i)}}{1+e^{a_i(\theta-b_i)}}$$
 + $b_i$ item difficulty parameter
 + $c_i$ guessing parameter
 
-### MTH017 Midterm Example
+### MTH017 Midterm Example with R
 
 ```{r echo=TRUE,message=FALSE,eval=TRUE}
 library(CTT)

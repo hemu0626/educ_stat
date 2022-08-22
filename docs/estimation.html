@@ -13,7 +13,7 @@
 
 <title>estimation.knit</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,7 +63,6 @@ if (window.hljs) {
 
 
 
-
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -84,9 +83,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,12 +308,12 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Item Response Theory</a>
+      <a class="navbar-brand" href="index.html">Psychometrics and Educational Statistics</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -325,7 +321,7 @@ div.tocify {
   <a href="ctt.html">Literature Review</a>
 </li>
 <li>
-  <a href="irt.html">CTT and IRT</a>
+  <a href="irt.html">Item Response Theory</a>
 </li>
 <li>
   <a href="cdms.html">Cognitive Diagnosis Models</a>
@@ -374,7 +370,8 @@ div.tocify {
 <p>If <span class="math inline">\(X_1,X_2,...X_n\)</span> are an iid sample from a population with pdf or pmf p(x|<span class="math inline">\(\theta_1,\theta_2,...\theta_k\)</span>),Likelihood function is defined by</p>
 <p><span class="math display">\[L(\theta|x)=L(\theta_1,\theta_2,...\theta_k|x_1,x_2,...x_n)=\prod_{i=1}^{n}p(x_i|\theta_1,\theta_2,...\theta_k)\]</span></p>
 <p>To find the maximum point of likelihood function, it is equivalent to find tha maximum point of the log likelihood function <span class="math inline">\(l(\theta|x)=logL(\theta|x)\)</span>. We just need to solve equation <span class="math inline">\(l&#39;(\theta|x)=0\)</span>, the solution <span class="math inline">\(\theta_{mle}\)</span> is the maximum likelihood estimate of <span class="math inline">\(\theta\)</span>.</p>
-<p>Formula of MLE: <span class="math display">\[\theta_{MLE}=\mathop{argmax}\limits _{\theta}log{L(x|\theta)}\]</span></p>
+<p>Formula of MLE:</p>
+<p><span class="math display">\[\theta_{MLE}=\mathop{argmax}\limits _{\theta}\log{L(x|\theta)}\]</span></p>
 </div>
 <div id="evaluation" class="section level3">
 <h3>Evaluation</h3>
@@ -389,61 +386,95 @@ div.tocify {
 <h3>Introduction</h3>
 <p>Given a set of observed data, <span class="math inline">\(X=[{x_i}]_{i=1}^N\)</span>, and model parameter <span class="math inline">\(\theta\)</span>. Assuming the corresponding unobserved data (latent variable) <span class="math inline">\(Z=[{z_i}]_{i=1}^N\)</span>, we call <span class="math inline">\((x_i,z_i)\)</span> as complete data. If we do not consider the unobserved data, MLE (Maximum Likelihood Estimation) can be directly used to estimate parameter.</p>
 <p>MLE: <span class="math display">\[P(X|\theta)\]</span></p>
-<p><span class="math display">\[\theta_{MLE}=\underset {\theta}{argmax} logP(X|\theta)\]</span></p>
-<p><span class="math display">\[\qquad =\underset {\theta}{argmax} \sum_i^N logP(x_i|\theta)  \qquad(1)\]</span></p>
+<p><span class="math display">\[\theta_{MLE}=\underset {\theta}{argmax} \log P(X|\theta) =\underset {\theta}{argmax} \sum_i^N \log P(x_i|\theta)  \]</span></p>
 <p>Because of unobserved data,</p>
-<p><span class="math display">\[P(X|\theta)=\int_Z P(X,Z|\theta)dZ  \qquad(2)\]</span></p>
+<p><span class="math display">\[P(X|\theta)=\int_Z P(X,Z|\theta)dZ  \]</span></p>
 <p>It is difficult to replace (2) to (1). Thus, EM is introduced. Iteration is used to get final answer. By EM, expectation step and maximization step are alternated, until convergence.</p>
 </div>
-<div id="em-formula" class="section level3">
-<h3>EM Formula:</h3>
-<p><span class="math display">\[\theta^{t+1}=\underset {\theta}{argmax} \int_Z logP(X,Z|\theta)\cdot P(Z|X,\theta^t)dZ\]</span></p>
-<p><span class="math display">\[=\underset {\theta}{argmax} E_{Z|X,\theta^t} [logP(X,Z|\theta)]\]</span></p>
+<div id="em" class="section level3">
+<h3>EM</h3>
+<p><span class="math display">\[\theta^{t+1}=\underset {\theta}{argmax} \int_Z \log P(X,Z|\theta)\cdot P(Z|X,\theta^t)dZ
+=\underset {\theta}{argmax} E_{Z|X,\theta^t} \log P(X,Z|\theta)]\]</span></p>
 <p><strong>E-step:</strong></p>
-<p><span class="math inline">\(P(Z|X,\theta^t)--&gt;E_{Z|X,\theta^t} [logP(X,Z|\theta)]\)</span></p>
+<p><span class="math display">\[P(Z|X,\theta^t) \rightarrow E_{Z|X,\theta^t} [\log P(X,Z|\theta)]\]</span></p>
 <p><strong>M-step:</strong></p>
-<p><span class="math inline">\(\theta^{t+1}=\underset {\theta}{argmax} E_{Z|X,\theta^t} [logP(X,Z|\theta)]\)</span></p>
+<p><span class="math display">\[\theta^{t+1}=\underset {\theta}{argmax} E_{Z|X,\theta^t} [\log P(X,Z|\theta)]\]</span></p>
 <p><strong>Prove</strong> procedure (use ELBO and KL Divergence):</p>
-<p><span class="math display">\[logP(X|\theta)=logP(X,Z|\theta)-logP(Z|X,\theta)\]</span></p>
-<p><span class="math display">\[ =log\frac {P(X,Z|\theta)} {q(Z)}-log\frac{P(Z|X,\theta)} {q(Z)}\]</span>, <span class="math inline">\(q(Z)\neq 0\)</span></p>
-<p>Integral with q(z):</p>
-<p>left=<span class="math inline">\(\int_Z q(Z)\cdot logP(X|\theta)dZ\)</span></p>
-<p>=<span class="math inline">\(logP(X|\theta)\int_Z q(Z)dZ\)</span></p>
-<p>=<span class="math inline">\(logP(X|\theta)\)</span></p>
-<p>right=<span class="math inline">\(\int_Z q(Z)\cdot log\frac {P(X,Z|\theta)} {q(Z)}dZ-\int_Z q(Z)\cdot log\frac{P(Z|X,\theta)} {q(Z)}dZ\)</span></p>
-<p><span class="math inline">\(\int_Z q(Z)\cdot log\frac {P(X,Z|\theta)} {q(Z)}dZ\)</span> is ELBO (evidence lower bound),</p>
-<p><span class="math inline">\(-\int_Z q(Z)\cdot log\frac{P(Z|X,\theta)} {q(Z)}dZ=\int_Z q(Z)\cdot log\frac {q(Z)}{P(Z|X,\theta)}dZ\)</span> is <span class="math inline">\(KL(q(Z)||P(Z|X,\theta))\)</span></p>
-<p><span class="math inline">\(KL(q(Z)||P(Z|X,\theta)) \geq 0\)</span> (0 is gotten when <span class="math inline">\(q(Z)=P(Z|X,\theta)\)</span>)</p>
-<p>Thus, <span class="math inline">\(logP(X|\theta)=ELBO+KL(q|P)\geq ELBO\)</span></p>
-<p><span class="math inline">\(\hat \theta=\underset \theta {argmax} ELBO\)</span></p>
-<p>=<span class="math inline">\(\underset \theta {argmax}\int_Z q(Z)\cdot log\frac {P(X,Z|\theta)} {q(Z)}dZ\)</span></p>
-<p><span class="math inline">\(\underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot log\frac {P(X,Z|\theta)} {P(Z|X,\theta))}dZ\)</span>, because KL=0 is gotten when <span class="math inline">\(q(Z)=P(Z|X,\theta)\)</span>)</p>
-<p><span class="math inline">\(\underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot [logP(X,Z|\theta)-logP(Z|X,\theta)]dZ\)</span></p>
-<p><span class="math inline">\(\underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot logP(X,Z|\theta)dZ\)</span>, because <span class="math inline">\(logP(Z|X,\theta)\)</span> have nothing to do with <span class="math inline">\(\theta\)</span></p>
+<p><span class="math display">\[\log P(X|\theta)=\log P(X,Z|\theta)-\log P(Z|X,\theta) =\log\frac {P(X,Z|\theta)} {q(Z)}-\log\frac{P(Z|X,\theta)} {q(Z)}\]</span></p>
+<p>Integral with <span class="math inline">\(q(z)\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+
+\text{left}&amp;=\int_Z q(Z)\cdot \log P(X|\theta)dZ\\
+
+&amp;=\log P(X|\theta)\int_Z q(Z)dZ\\
+
+&amp;=\log P(X|\theta)\\
+
+
+\text{right}&amp;=\int_Z q(Z)\cdot log\frac {P(X,Z|\theta)} {q(Z)}dZ-\int_Z q(Z)\cdot log\frac{P(Z|X,\theta)} {q(Z)}dZ\\
+
+\end{align}\]</span></p>
+<p>where</p>
+<p><span class="math display">\[\int_Z q(Z)\cdot \log\frac {P(X,Z|\theta)} {q(Z)}dZ\]</span></p>
+<p>is ELBO (evidence lower bound), and</p>
+<p><span class="math display">\[-\int_Z q(Z)\cdot \log\frac{P(Z|X,\theta)} {q(Z)}dZ=\int_Z q(Z)\cdot \log\frac {q(Z)}{P(Z|X,\theta)}dZ\]</span></p>
+<p>is <span class="math inline">\(KL(q(Z)||P(Z|X,\theta))\)</span>.</p>
+<p>Correspondingly,</p>
+<p><span class="math display">\[KL(q(Z)||P(Z|X,\theta)) \geq 0\]</span></p>
+<p>where 0 is gotten when <span class="math inline">\(q(Z)=P(Z|X,\theta)\)</span>.</p>
+<p>Thus,</p>
+<p><span class="math display">\[\log P(X|\theta)=ELBO+KL(q|P)\geq ELBO\]</span></p>
+<p><span class="math display">\[\begin{align}
+
+\hat \theta&amp;=\underset \theta {argmax} ELBO\\
+
+&amp;=\underset \theta {argmax}\int_Z q(Z)\cdot \log\frac {P(X,Z|\theta)} {q(Z)}dZ\\
+
+&amp; =\underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot \log\frac {P(X,Z|\theta)} {P(Z|X,\theta))}dZ \quad \text{because KL=0 is gotten when $q(Z)=P(Z|X,\theta)$)}\\
+
+&amp;= \underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot [\log P(X,Z|\theta)-\log P(Z|X,\theta)]dZ\\
+
+&amp;= \underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot \log P(X,Z|\theta)dZ, \quad \text{because $\log P(Z|X,\theta)$ have nothing to do with $\theta$}
+
+\end{align}\]</span></p>
 </div>
 <div id="convergence" class="section level3">
 <h3>Convergence</h3>
-<p>We want to find, if <span class="math inline">\(\theta^t--&gt;\theta^{t+1}\)</span>, when <span class="math display">\[logP(X|\theta^t)\leq logP(X|\theta^{t+1})\]</span></p>
+<p>We want to find, if <span class="math inline">\(\theta^t \rightarrow \theta^{t+1}\)</span>, when <span class="math display">\[\log P(X|\theta^t)\leq \log P(X|\theta^{t+1})\]</span></p>
 <p>i.e. will <span class="math inline">\(\theta\)</span> increase by EM</p>
 <p>Prove procedure:</p>
-<p><span class="math display">\[logP(X|\theta)=logP(X,Z|\theta)-logP(Z|X,\theta)\]</span> Integral with z</p>
-<p>left=<span class="math inline">\(\int_Z P(Z|X,\theta^t)\cdot logP(X|\theta)dZ\)</span></p>
-<p>=<span class="math inline">\(logP(X|\theta)\int_Z P(Z|X,\theta^t)dZ\)</span></p>
-<p>=<span class="math inline">\(logP(X|\theta)\)</span></p>
-<p>right=<span class="math inline">\(\int_Z P(Z|X,\theta^t)\cdot logP(X,Z|\theta)dZ-\int_Z P(Z|X,\theta^t)\cdot logP(Z|X,\theta)dZ\)</span></p>
-<p>Let <span class="math inline">\(\int_Z P(Z|X,\theta^t)\cdot logP(X,Z|\theta)dZ\)</span> be <span class="math inline">\(Q(\theta, \theta^t)\)</span></p>
-<p><span class="math inline">\(\int_Z P(Z|X,\theta^t)\cdot logP(Z|X,\theta)dZ\)</span> be <span class="math inline">\(H(\theta, \theta^t)\)</span></p>
-<p>Because <span class="math inline">\(\theta^{t+1}=\underset {\theta}{argmax}Q(\theta, \theta^t)\)</span>,</p>
-<p>thus <span class="math inline">\(Q(\theta^{t+1}, \theta^t)\geq Q(\theta, \theta^t)\)</span></p>
+<p><span class="math display">\[\log P(X|\theta)=\log P(X,Z|\theta)-\log P(Z|X,\theta)\]</span> Integral with z</p>
+<p><span class="math display">\[\begin{align}
+
+\text{left} &amp;=\int_Z P(Z|X,\theta^t)\cdot \log P(X|\theta)dZ\\
+
+&amp; =\log P(X|\theta)\int_Z P(Z|X,\theta^t)dZ\\
+ 
+&amp; = \log P(X|\theta)\\
+
+\text{right}&amp;= \int_Z P(Z|X,\theta^t)\cdot \log P(X,Z|\theta)dZ-\int_Z P(Z|X,\theta^t)\cdot \log P(Z|X,\theta)dZ\\
+
+\end{align}\]</span></p>
+<p>Denote</p>
+<p><span class="math display">\[\int_Z P(Z|X,\theta^t)\cdot \log P(X,Z|\theta)dZ =Q(\theta, \theta^t)\quad \text{and} \quad \int_Z P(Z|X,\theta^t)\cdot \log P(Z|X,\theta)dZ = H(\theta, \theta^t)\]</span></p>
+<p>As</p>
+<p><span class="math display">\[\theta^{t+1}=\underset {\theta}{argmax}Q(\theta, \theta^t)\]</span></p>
+<p>Then,</p>
+<p><span class="math display">\[Q(\theta^{t+1}, \theta^t)\geq Q(\theta, \theta^t)\]</span></p>
 <p><span class="math inline">\(\theta\)</span> is a parameter, let <span class="math inline">\(\theta=\theta^t\)</span></p>
 <p><span class="math inline">\(Q(\theta^{t+1}, \theta^t)\geq Q(\theta^t, \theta^t)\)</span></p>
 <p>Then, we have to prove <span class="math inline">\(H(\theta^{t+1}, \theta^t)\leq H(\theta^t, \theta^t)\)</span></p>
-<p><span class="math inline">\(H(\theta^{t+1}, \theta^t)-H(\theta^t, \theta^t)\)</span></p>
-<p>=<span class="math inline">\(\int_Z P(Z|X,\theta^t)\cdot logP(Z|X,\theta^{t+1})dZ-\int_Z P(Z|X,\theta^t)\cdot logP(Z|X,\theta^t)dZ\)</span></p>
-<p>=<span class="math inline">\(\int_Z P(Z|X,\theta^t)\cdot log\frac {P(Z|X,\theta^{t+1})}{P(Z|X,\theta^t)}dZ\)</span></p>
-<p><span class="math inline">\(\leq log \int_Z P(Z|X,\theta^{t+1})\)</span> =log 1= 0</p>
-<p>(Because <span class="math inline">\(E[log x]\leq logE[x]\)</span>)</p>
-<p>(or use <span class="math inline">\(=-KL(P(Z|X,\theta^t)||P(Z|X,\theta^{t+1})\leq 0)\)</span></p>
+<p><span class="math display">\[\begin{align}
+
+&amp;H(\theta^{t+1}, \theta^t)-H(\theta^t, \theta^t)\\
+
+=&amp;\int_Z P(Z|X,\theta^t)\cdot \log P(Z|X,\theta^{t+1})dZ-\int_Z P(Z|X,\theta^t)\cdot \log P(Z|X,\theta^t)dZ\\
+
+=&amp;\int_Z P(Z|X,\theta^t)\cdot \log\frac {P(Z|X,\theta^{t+1})}{P(Z|X,\theta^t)}dZ\\
+  
+\leq &amp; \log \int_Z P(Z|X,\theta^{t+1}) =\log 1= 0 \quad \text{(Because $E[log x]\leq logE[x]$ or use $=-KL(P(Z|X,\theta^t)||P(Z|X,\theta^{t+1})\leq 0)$}
+
+\end{align}\]</span></p>
 </div>
 </div>
 <div id="computerized-adaptive-testingcat" class="section level2">
@@ -456,22 +487,27 @@ div.tocify {
 <div id="definition-1" class="section level4">
 <h4>Definition</h4>
 <p>According to Davier et al. (2019), firstly, We give the definition of the first derivative of log likelihood function as Score function:</p>
-<p><span class="math display">\[S(X;\theta)=\sum_{i=1}^n\frac{dlogf(X_i;\theta)}{d\theta}\]</span></p>
+<p><span class="math display">\[S(X|\theta)=\sum_{i=1}^n\frac{d\log f(X_i;\theta)}{d\theta}\]</span></p>
 <p>where <span class="math inline">\(f(X_i;\theta)\)</span> refers to the likelihood function, θ is the underlying latent trait, and x represents the observed response pattern.</p>
 <p>Fisher information is second moment of this Score function:</p>
-<p><span class="math display">\[I(\theta)=E[S(X;\theta^2)]\]</span> where <span class="math inline">\(I(\theta)\)</span> is fisher information.</p>
+<p><span class="math display">\[I(\theta)=E[S(X|\theta^2)]\]</span> where <span class="math inline">\(I(\theta)\)</span> is fisher information.</p>
 </div>
 <div id="mathematical-meanings" class="section level4">
 <h4>Mathematical meanings</h4>
-<p>According to Davier et al. (2019), ①It can estimate the variance of the MLE equation: As <span class="math inline">\(E[S(X;\theta)=0\)</span>,we can get that <span class="math display">\[I(\theta)=E[S(X;\theta^2)]-E[S(X;\theta)]=Var[S(X|\theta)]\]</span> ②It is the expectation of the negative second order derivative of log likelihood at the true value of the parameter</p>
-<p><span class="math display">\[I(\theta)=-E[l&#39;&#39;(x|\theta)]=-\int[\frac{d^2logf(x|\theta)f(x|\theta)}{d\theta^2}]\]</span> <span class="math display">\[I(\theta)=-E\lbrace[\frac  {\partial^2 ln f(x;\theta)}{\partial^2 \theta} \rbrace\]</span></p>
-<p>③Fisher Information reflects the accuracy of our parameter estimates; the larger it is, the more accurate the parameter estimate, i.e. the more information it represents.</p>
+<p>According to Davier et al. (2019), it can estimate the variance of the MLE equation:</p>
+<p>As <span class="math inline">\(E[S(X;\theta)=0\)</span>,we can get that</p>
+<p><span class="math display">\[I(\theta)=E[S(X|\theta^2)]-E[S(X|\theta)]=Var[S(X|\theta)]\]</span></p>
+<p>It is the expectation of the negative second order derivative of log likelihood at the true value of the parameter</p>
+<p><span class="math display">\[I(\theta)=-E[f&#39;&#39;(x|\theta)]=-\int\frac{d^2\log f(x|\theta)f(x|\theta)}{d\theta^2} dx\]</span></p>
+<p><span class="math display">\[I(\theta)=-E\left[\frac  {\partial^2 \log f(x;\theta)}{\partial^2 \theta} \right]\]</span></p>
+<p>Fisher Information reflects the accuracy of our parameter estimates; the larger it is, the more accurate the parameter estimate, i.e. the more information it represents.</p>
 </div>
 <div id="application" class="section level4">
 <h4>Application</h4>
 <p>The item k’s Fisher information is given by <span class="math inline">\(I_k(\theta)=\frac {[P_k&#39;(\theta)]^2}{P_k(\theta)Q_k(\theta)}\)</span> according to Davier et al. (2019), where <span class="math inline">\(P_k(\theta)\)</span> is the item response function for item k which is specified by the selected IRT model, and <span class="math inline">\(Q_k(θ) = 1 − P_k(θ)\)</span>, and <span class="math inline">\(P_k&#39; (θ)\)</span> refers to the first derivative of the item response function in relation to <span class="math inline">\(\theta\)</span>.</p>
 <p>Assuming local independence the test information I(θ) is additive in item information, that means <span class="math inline">\(I(\theta)=\Sigma I_k(\theta)\)</span>.</p>
-<p>For the three-parameter logistic (3PL) model, <span class="math inline">\(P_j(θ)\)</span> is given by <span class="math display">\[P_k(\theta)=c_k+(1-c_k)\frac{e^{a_k(\theta-b_k)}}{1+e^{a_k(\theta-b_k)}}\]</span></p>
+<p>For the three-parameter logistic (3PL) model, <span class="math inline">\(P_j(θ)\)</span> is given by</p>
+<p><span class="math display">\[P_k(\theta)=c_k+(1-c_k)\frac{e^{a_k(\theta-b_k)}}{1+e^{a_k(\theta-b_k)}}\]</span></p>
 <p>where <span class="math inline">\(a_k\)</span>, <span class="math inline">\(b_k\)</span> and <span class="math inline">\(c_k\)</span> respectively refer to the discrimination, hardness, and guessing parameter for the kth item.</p>
 <p>If the MFI method is applied to item selection, under the current estimate of <span class="math inline">\(\theta\)</span> , an eligible item in the bank with the largest Fisher information will be selected as the next item to be managed.</p>
 <p>Since the asymptotic variance of <span class="math inline">\(\theta ^{ML}\)</span>,i.e. the maximum likelihood estimate of <span class="math inline">\(\theta\)</span>, is in inverse proportion to the test information, the MFI method is widely considered to be a method to minimize the asymptotic variance of the θ estimate, that is, to asymptotically maximize the measurement precision.</p>
@@ -495,27 +531,30 @@ div.tocify {
 <div id="definition-2" class="section level4">
 <h4>Definition</h4>
 <p>For discrete (not necessarily finite) probability distributions, p={p1, …, pn} and q={q1, …, qn}, the KL-distance is defined to be</p>
-<p><span class="math display">\[D_{KL}(P||Q)=\sum_i P(i)ln(\frac {P(i)}{Q(i)})\]</span></p>
-<p>For continuous probability densities, <span class="math display">\[D_{KL}(P||Q)=\int_{-\infty}^{\infty} P(x)ln(\frac {P(x)}{Q(x)})\]</span></p>
+<p><span class="math display">\[D_{KL}(P||Q)=\sum_i P(i)\log\left(\frac {P(i)}{Q(i)}\right)\]</span></p>
+<p>For continuous probability densities,</p>
+<p><span class="math display">\[D_{KL}(P||Q)=\int_{-\infty}^{\infty} P(x)\log\left(\frac {P(x)}{Q(x)}\right)\]</span></p>
 <p>Xu et al.’s (2005) KL Algorithm:</p>
-<p>According to Cover &amp; Thomas(1991), KL information is a measure of “distance” between two probability distributions, which can be defined as: <span class="math display">\[d[f,g]=E_f[log \frac{f(x)}{g(x)}]\]</span> where f(x) and g(x) are two probability distributions.</p>
-<p>However, because the unsymmetrical of d[f, g] and d[g, f], KL information is not a real distance measure. KL distance is still introduced due to the meaning of it, the larger d[f, g] is corresponding to the easier it is to single out between the two probability distributions f(x) and g(x) statistically (Henson &amp; Douglas, 2005).</p>
+<p>According to Cover &amp; Thomas(1991), KL information is a measure of “distance” between two probability distributions, which can be defined as:</p>
+<p><span class="math display">\[d[f,g]=E_f\left[\log \frac{f(x)}{g(x)}\right]\]</span> where <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span> are two probability distributions.</p>
+<p>However, because the unsymmetrical of <span class="math inline">\(d[f, g]\)</span> and <span class="math inline">\(d[g, f]\)</span>, KL information is not a real distance measure. KL distance is still introduced due to the meaning of it, the larger d[f, g] is corresponding to the easier it is to single out between the two probability distributions <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span> statistically (Henson &amp; Douglas, 2005).</p>
 </div>
 <div id="the-kl-algorithm-based-on-kullbackleibler-information-cheng-2009" class="section level4">
 <h4>The KL Algorithm Based on Kullback–Leibler Information (Cheng, 2009)</h4>
 <p>Suppose t items are selected, and the available items in the pool form a set R(t) at this stage. Consider item h in <span class="math inline">\(R^{(t)}\)</span>. In cognitive diagnosis, conditional distribution of person i’s item responses <span class="math inline">\(U_{ih}\)</span> given his or her latent state, or cognitive profile, <span class="math inline">\(\alpha_i\)</span> are what interested. According to the notation of McGlohen and Chang (2008), <span class="math inline">\(\alpha_{i}=(\alpha_{i1},\alpha_{i2},...,\alpha_{ik},...,\alpha_{iK})&#39;\)</span>.</p>
-<p>Here <span class="math inline">\(\alpha_{ik}\)</span> = 0 indicates that the ith examinee not masters the kth attribute and <span class="math inline">\(\alpha_{ik}\)</span> = 1 otherwise. An attribute is a task, cognitive process, or skill involved in answering an item.</p>
-<p>Due to the unknown true state, a global measure of discrimination can be constructed on the basis of the KL distance between the distribution of <span class="math inline">\(U_{ih}\)</span> given the current estimate of person i’s latent cognitive state (i.e., <span class="math inline">\(f(U_{ih}|\hat \alpha_i^{(t)}\)</span>)) and the distribution of <span class="math inline">\(U_{ih}\)</span> given other states.</p>
+<p>Here <span class="math inline">\(\alpha_{ik}\)</span> = 0 indicates that the <span class="math inline">\(i\)</span>th examinee not masters the kth attribute and <span class="math inline">\(\alpha_{ik} = 1\)</span> otherwise. An attribute is a task, cognitive process, or skill involved in answering an item.</p>
+<p>Due to the unknown true state, a global measure of discrimination can be constructed on the basis of the KL distance between the distribution of <span class="math inline">\(U_{ih}\)</span> given the current estimate of person <span class="math inline">\(i\)</span>’s latent cognitive state (i.e., <span class="math inline">\(f(U_{ih}|\hat \alpha_i^{(t)}\)</span>)) and the distribution of <span class="math inline">\(U_{ih}\)</span> given other states.</p>
 <p>The KL distance between <span class="math inline">\(f(U_{ih}|\hat \alpha_i^{(t)}\)</span>)) and the conditional distribution of <span class="math inline">\(U_{ih}\)</span> given another latent state <span class="math inline">\(\alpha_c\)</span>, i.e., <span class="math inline">\(f(U_{ih}|\alpha_c\)</span>)), can be computed as follows:</p>
-<p><span class="math display">\[D_h(\hat \alpha_i^{(t)}||\alpha_c)=\sum_{q=0}^1log[\frac{P(U_{ih}=q|\hat \alpha_i^{(t)})}{P(U_{ih}=q|\alpha_c)}]P(U_{ih}=q|\hat \alpha_i^{(t)})\]</span></p>
-<p>Xu et al. (2003) stated using the straight sum of the KL distances between <span class="math inline">\(f(U_{ih}|\hat \alpha_i^{(t)}\)</span>)) and all the <span class="math inline">\(f(U_{ih}|\alpha_c\)</span>)), c = 1, 2,…, <span class="math inline">\(2^K\)</span> (when there are K attributes, there are <span class="math inline">\(2^K\)</span> possible latent cognitive states): <span class="math display">\[KL_h(\hat \alpha_i^{(t)})=\sum _{c=1}^{2^K}D_h(\hat \alpha_i^{(t)}||\alpha_c)\]</span></p>
-<p>Then the (t + 1)th item for the ith examinee is the item in R(t) that maximizes <span class="math inline">\(KL_h(\hat \alpha_i^{(t)})\)</span>. This is referred to as the KL algorithm. The items selected using this algorithm are the most powerful ones on average in distinguishing the current latent class estimate from all other possible latent classes.</p>
+<p><span class="math display">\[D_h(\hat \alpha_i^{(t)}||\alpha_c)=\sum_{q=0}^1\log \left[\frac{P(U_{ih}=q|\hat \alpha_i^{(t)})}{P(U_{ih}=q|\alpha_c)}\right]P(U_{ih}=q|\hat \alpha_i^{(t)})\]</span></p>
+<p>Xu et al. (2003) stated using the straight sum of the KL distances between <span class="math inline">\(f(U_{ih}|\hat \alpha_i^{(t)}\)</span>)) and all the <span class="math inline">\(f(U_{ih}|\alpha_c\)</span>)), c = 1, 2,…, <span class="math inline">\(2^K\)</span> (when there are K attributes, there are <span class="math inline">\(2^K\)</span> possible latent cognitive states):</p>
+<p><span class="math display">\[KL_h(\hat \alpha_i^{(t)})=\sum _{c=1}^{2^K}D_h(\hat \alpha_i^{(t)}||\alpha_c)\]</span></p>
+<p>Then the <span class="math inline">\((t + 1)\)</span>th item for the <span class="math inline">\(i\)</span>th examinee is the item in <span class="math inline">\(R(t)\)</span> that maximizes <span class="math inline">\(KL_h(\hat \alpha_i^{(t)})\)</span>. This is referred to as the KL algorithm. The items selected using this algorithm are the most powerful ones on average in distinguishing the current latent class estimate from all other possible latent classes.</p>
 </div>
 <div id="use-of-kl-distance" class="section level4">
 <h4>Use of KL Distance</h4>
 <p>It is helpful to choose the optimal parameter. For instance, if p(x) is unknown, a <span class="math inline">\(q(x|\theta)\)</span> can be constructed to estimate p(x). In order to know <span class="math inline">\(\theta\)</span>, select N samples from p(x) and construct such function:</p>
-<p><span class="math display">\[D_{KL}(p||q)=\sum_{i=1}^Np(x_i)(logp(x_i)-log(q(x_i|\theta))\]</span></p>
-<p>Then use MLE to estimate <span class="math inline">\(\theta\)</span></p>
+<p><span class="math display">\[D_{KL}(p||q)=\sum_{i=1}^Np(x_i)(\log p(x_i)-\log(q(x_i|\theta))\]</span></p>
+<p>Then use MLE to estimate <span class="math inline">\(\theta\)</span>.</p>
 </div>
 </div>
 <div id="shannon-entropy" class="section level3">
@@ -524,8 +563,8 @@ div.tocify {
 <div id="definition-3" class="section level4">
 <h4>Definition</h4>
 <p>For a discrete random variable X which takes value among <span class="math inline">\(x_1,x_2,...x_n\)</span>, the Shannon entropy is defined as:</p>
-<p><span class="math display">\[H(X)=-\sum_{i=1}^np(x_i)log_b(x_i)\]</span></p>
-<p>In the definition, <span class="math inline">\(p(x_i)\)</span> is the probability when X = <span class="math inline">\(x_i\)</span>. H(X) can also be written as H(P) or H(<span class="math inline">\(p_1,p_2,...p_n\)</span>). Owing to the formula, we can conclude that independent uncertainties are additive. b is the base of logarithm, which takes value among 2,e and 10. The differences among choices of b are the unit of entropy. For b=2, unit is bit; for b = e, unit is nat; for b = 10, unit is dit or digit.</p>
+<p><span class="math display">\[H(X)=-\sum_{i=1}^np(x_i)\log_b(x_i)\]</span></p>
+<p>In the definition, <span class="math inline">\(p(x_i)\)</span> is the probability when X = <span class="math inline">\(x_i\)</span>. <span class="math inline">\(H(X)\)</span> can also be written as <span class="math inline">\(H(P)\)</span> or H(<span class="math inline">\(p_1,p_2,...p_n\)</span>). Owing to the formula, we can conclude that independent uncertainties are additive. <span class="math inline">\(b\)</span> is the base of logarithm, which takes value among 2,e and 10. The differences among choices of b are the unit of entropy. For <span class="math inline">\(b=2\)</span>, unit is bit; for <span class="math inline">\(b = e\)</span>, unit is nat; for $ b = 10$, unit is dit or digit.</p>
 </div>
 </div>
 <div id="properties" class="section level3">
@@ -534,11 +573,12 @@ div.tocify {
 <div id="nonnegativity" class="section level4">
 <h4>Nonnegativity</h4>
 <p><span class="math display">\[H(p_1,p_2,...p_n)\ge0\]</span></p>
-<p>This equality holds only when the distribution is certain which means <span class="math inline">\(\exists\quad p_i=1\)</span>, and other <span class="math inline">\(p_j=0\)</span>, where i<span class="math inline">\(\ne\)</span>j.</p>
+<p>This equality holds only when the distribution is certain which means <span class="math inline">\(\exists\quad p_i=1\)</span>, and other <span class="math inline">\(p_j=0\)</span>, where <span class="math inline">\(i\neq j\)</span>.</p>
 </div>
 <div id="maximality" class="section level4">
 <h4>Maximality</h4>
-<p>H(P) reaches its maximum when all the events share same probability, which means <span class="math inline">\(p_1=p_2=p_n=\frac{1}{n}\)</span>. Moreover, if the events all share same probability, H(P) increases with the number of events increasing. It means <span class="math display">\[H(\frac{1}{n},\frac{1}{n},...)&lt;H(\frac{1}{n+1},\frac{1}{n+1}...)\]</span>.</p>
+<p><span class="math inline">\(H(P)\)</span> reaches its maximum when all the events share same probability, which means <span class="math inline">\(p_1=p_2=p_n=\frac{1}{n}\)</span>. Moreover, if the events all share same probability, <span class="math inline">\(H(P)\)</span> increases with the number of events increasing. It means</p>
+<p><span class="math display">\[H(\frac{1}{n},\frac{1}{n},...)&lt;H(\frac{1}{n+1},\frac{1}{n+1}...)\]</span></p>
 </div>
 <div id="concavity" class="section level4">
 <h4>Concavity</h4>

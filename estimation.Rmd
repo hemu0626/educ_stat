@@ -42,7 +42,8 @@ $$L(\theta|x)=L(\theta_1,\theta_2,...\theta_k|x_1,x_2,...x_n)=\prod_{i=1}^{n}p(x
 To find the maximum point of likelihood function, it is equivalent to find tha maximum point of the log likelihood function $l(\theta|x)=logL(\theta|x)$. We just need to solve equation $l'(\theta|x)=0$, the solution $\theta_{mle}$ is the maximum likelihood estimate of $\theta$.
 
 Formula of MLE:
-$$\theta_{MLE}=\mathop{argmax}\limits _{\theta}log{L(x|\theta)}$$
+
+$$\theta_{MLE}=\mathop{argmax}\limits _{\theta}\log{L(x|\theta)}$$
 
 ### Evaluation
 
@@ -61,89 +62,122 @@ Given a set of observed data, $X=[{x_i}]_{i=1}^N$, and model parameter $\theta$.
 
 MLE: $$P(X|\theta)$$
 
-$$\theta_{MLE}=\underset {\theta}{argmax} logP(X|\theta)$$
-
-$$\qquad =\underset {\theta}{argmax} \sum_i^N logP(x_i|\theta)  \qquad(1)$$
+$$\theta_{MLE}=\underset {\theta}{argmax} \log P(X|\theta) =\underset {\theta}{argmax} \sum_i^N \log P(x_i|\theta)  $$
 
 Because of unobserved data, 
 
-$$P(X|\theta)=\int_Z P(X,Z|\theta)dZ  \qquad(2)$$
+$$P(X|\theta)=\int_Z P(X,Z|\theta)dZ  $$
 
 It is difficult to replace (2) to  (1). Thus, EM is introduced. Iteration is used to get final answer. By EM, expectation step and maximization step are alternated, until convergence.
 
-### EM Formula: 
+### EM 
 
-$$\theta^{t+1}=\underset {\theta}{argmax} \int_Z logP(X,Z|\theta)\cdot P(Z|X,\theta^t)dZ$$
-
-\qquad $$=\underset {\theta}{argmax} E_{Z|X,\theta^t} [logP(X,Z|\theta)]$$
+$$\theta^{t+1}=\underset {\theta}{argmax} \int_Z \log P(X,Z|\theta)\cdot P(Z|X,\theta^t)dZ
+=\underset {\theta}{argmax} E_{Z|X,\theta^t} \log P(X,Z|\theta)]$$
 
 __E-step:__
 
-$P(Z|X,\theta^t)-->E_{Z|X,\theta^t} [logP(X,Z|\theta)]$
+
+$$P(Z|X,\theta^t) \rightarrow E_{Z|X,\theta^t} [\log P(X,Z|\theta)]$$
 
 __M-step:__
 
-$\theta^{t+1}=\underset {\theta}{argmax} E_{Z|X,\theta^t} [logP(X,Z|\theta)]$
+
+$$\theta^{t+1}=\underset {\theta}{argmax} E_{Z|X,\theta^t} [\log P(X,Z|\theta)]$$
+
 
 __Prove__ procedure (use ELBO and KL Divergence):
 
-$$logP(X|\theta)=logP(X,Z|\theta)-logP(Z|X,\theta)$$
 
-\qquad $$ =log\frac {P(X,Z|\theta)} {q(Z)}-log\frac{P(Z|X,\theta)} {q(Z)}$$, $q(Z)\neq 0$
+$$\log P(X|\theta)=\log P(X,Z|\theta)-\log P(Z|X,\theta) =\log\frac {P(X,Z|\theta)} {q(Z)}-\log\frac{P(Z|X,\theta)} {q(Z)}$$
 
-Integral with q(z):
 
-left=$\int_Z q(Z)\cdot logP(X|\theta)dZ$
+Integral with $q(z)$:
 
-\qquad =$logP(X|\theta)\int_Z q(Z)dZ$
+\begin{align}
 
-\qquad =$logP(X|\theta)$
+\text{left}&=\int_Z q(Z)\cdot \log P(X|\theta)dZ\\
 
-right=$\int_Z q(Z)\cdot log\frac {P(X,Z|\theta)} {q(Z)}dZ-\int_Z q(Z)\cdot log\frac{P(Z|X,\theta)} {q(Z)}dZ$
+&=\log P(X|\theta)\int_Z q(Z)dZ\\
 
-$\int_Z q(Z)\cdot log\frac {P(X,Z|\theta)} {q(Z)}dZ$ is ELBO (evidence lower bound), 
+&=\log P(X|\theta)\\
 
-$-\int_Z q(Z)\cdot log\frac{P(Z|X,\theta)} {q(Z)}dZ=\int_Z q(Z)\cdot log\frac {q(Z)}{P(Z|X,\theta)}dZ$ is $KL(q(Z)||P(Z|X,\theta))$ 
 
-$KL(q(Z)||P(Z|X,\theta)) \geq 0$ (0 is gotten when $q(Z)=P(Z|X,\theta)$)
+\text{right}&=\int_Z q(Z)\cdot log\frac {P(X,Z|\theta)} {q(Z)}dZ-\int_Z q(Z)\cdot log\frac{P(Z|X,\theta)} {q(Z)}dZ\\
 
-Thus, $logP(X|\theta)=ELBO+KL(q|P)\geq ELBO$
+\end{align}
 
-$\hat \theta=\underset \theta {argmax} ELBO$
+where
 
-\qquad =$\underset \theta {argmax}\int_Z q(Z)\cdot log\frac {P(X,Z|\theta)} {q(Z)}dZ$
+$$\int_Z q(Z)\cdot \log\frac {P(X,Z|\theta)} {q(Z)}dZ$$
 
-\qquad $\underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot log\frac {P(X,Z|\theta)} {P(Z|X,\theta))}dZ$, because KL=0 is gotten when $q(Z)=P(Z|X,\theta)$)
+is ELBO (evidence lower bound), and
 
-\qquad $\underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot [logP(X,Z|\theta)-logP(Z|X,\theta)]dZ$
 
-\qquad $\underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot logP(X,Z|\theta)dZ$, because $logP(Z|X,\theta)$ have nothing to do with $\theta$
+$$-\int_Z q(Z)\cdot \log\frac{P(Z|X,\theta)} {q(Z)}dZ=\int_Z q(Z)\cdot \log\frac {q(Z)}{P(Z|X,\theta)}dZ$$
+
+
+is $KL(q(Z)||P(Z|X,\theta))$.
+
+Correspondingly,
+
+$$KL(q(Z)||P(Z|X,\theta)) \geq 0$$
+
+where 0 is gotten when $q(Z)=P(Z|X,\theta)$.
+
+Thus, 
+
+$$\log P(X|\theta)=ELBO+KL(q|P)\geq ELBO$$
+
+\begin{align}
+
+\hat \theta&=\underset \theta {argmax} ELBO\\
+
+&=\underset \theta {argmax}\int_Z q(Z)\cdot \log\frac {P(X,Z|\theta)} {q(Z)}dZ\\
+
+& =\underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot \log\frac {P(X,Z|\theta)} {P(Z|X,\theta))}dZ \quad \text{because KL=0 is gotten when $q(Z)=P(Z|X,\theta)$)}\\
+
+&= \underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot [\log P(X,Z|\theta)-\log P(Z|X,\theta)]dZ\\
+
+&= \underset \theta {argmax}\int_Z P(Z|X,\theta)\cdot \log P(X,Z|\theta)dZ, \quad \text{because $\log P(Z|X,\theta)$ have nothing to do with $\theta$}
+
+\end{align}
+
 
 ### Convergence
-We want to find, if $\theta^t-->\theta^{t+1}$, when $$logP(X|\theta^t)\leq logP(X|\theta^{t+1})$$
+
+We want to find, if $\theta^t \rightarrow \theta^{t+1}$, when $$\log P(X|\theta^t)\leq \log P(X|\theta^{t+1})$$
 
 i.e. will $\theta$ increase by EM
 
 Prove procedure:
 
-$$logP(X|\theta)=logP(X,Z|\theta)-logP(Z|X,\theta)$$
+$$\log P(X|\theta)=\log P(X,Z|\theta)-\log P(Z|X,\theta)$$
 Integral with z
 
-left=$\int_Z P(Z|X,\theta^t)\cdot logP(X|\theta)dZ$
+\begin{align}
 
-\qquad =$logP(X|\theta)\int_Z P(Z|X,\theta^t)dZ$
+\text{left} &=\int_Z P(Z|X,\theta^t)\cdot \log P(X|\theta)dZ\\
 
-\qquad =$logP(X|\theta)$
+& =\log P(X|\theta)\int_Z P(Z|X,\theta^t)dZ\\
+ 
+& = \log P(X|\theta)\\
 
-right=$\int_Z P(Z|X,\theta^t)\cdot logP(X,Z|\theta)dZ-\int_Z P(Z|X,\theta^t)\cdot logP(Z|X,\theta)dZ$
+\text{right}&= \int_Z P(Z|X,\theta^t)\cdot \log P(X,Z|\theta)dZ-\int_Z P(Z|X,\theta^t)\cdot \log P(Z|X,\theta)dZ\\
 
-\quad Let $\int_Z P(Z|X,\theta^t)\cdot logP(X,Z|\theta)dZ$ be $Q(\theta, \theta^t)$
+\end{align}
 
-\quad $\int_Z P(Z|X,\theta^t)\cdot logP(Z|X,\theta)dZ$ be $H(\theta, \theta^t)$
+Denote
 
-Because $\theta^{t+1}=\underset {\theta}{argmax}Q(\theta, \theta^t)$, 
+$$\int_Z P(Z|X,\theta^t)\cdot \log P(X,Z|\theta)dZ =Q(\theta, \theta^t)\quad \text{and} \quad \int_Z P(Z|X,\theta^t)\cdot \log P(Z|X,\theta)dZ = H(\theta, \theta^t)$$
 
-thus $Q(\theta^{t+1}, \theta^t)\geq Q(\theta, \theta^t)$
+As 
+
+$$\theta^{t+1}=\underset {\theta}{argmax}Q(\theta, \theta^t)$$
+
+Then,
+
+$$Q(\theta^{t+1}, \theta^t)\geq Q(\theta, \theta^t)$$
 
 $\theta$ is a parameter, let $\theta=\theta^t$
 
@@ -151,17 +185,17 @@ $Q(\theta^{t+1}, \theta^t)\geq Q(\theta^t, \theta^t)$
 
 Then, we have to prove $H(\theta^{t+1}, \theta^t)\leq H(\theta^t, \theta^t)$
 
-$H(\theta^{t+1}, \theta^t)-H(\theta^t, \theta^t)$
+\begin{align}
 
-=$\int_Z P(Z|X,\theta^t)\cdot logP(Z|X,\theta^{t+1})dZ-\int_Z P(Z|X,\theta^t)\cdot logP(Z|X,\theta^t)dZ$
+&H(\theta^{t+1}, \theta^t)-H(\theta^t, \theta^t)\\
 
-=$\int_Z P(Z|X,\theta^t)\cdot log\frac {P(Z|X,\theta^{t+1})}{P(Z|X,\theta^t)}dZ$
+=&\int_Z P(Z|X,\theta^t)\cdot \log P(Z|X,\theta^{t+1})dZ-\int_Z P(Z|X,\theta^t)\cdot \log P(Z|X,\theta^t)dZ\\
+
+=&\int_Z P(Z|X,\theta^t)\cdot \log\frac {P(Z|X,\theta^{t+1})}{P(Z|X,\theta^t)}dZ\\
   
-$\leq log \int_Z P(Z|X,\theta^{t+1})$ =log 1= 0
+\leq & \log \int_Z P(Z|X,\theta^{t+1}) =\log 1= 0 \quad \text{(Because $E[log x]\leq logE[x]$ or use $=-KL(P(Z|X,\theta^t)||P(Z|X,\theta^{t+1})\leq 0)$}
 
-(Because $E[log x]\leq logE[x]$) 
-
-(or use $=-KL(P(Z|X,\theta^t)||P(Z|X,\theta^{t+1})\leq 0)$
+\end{align}
 
 ## Computerized Adaptive Testing(CAT)
 
@@ -177,29 +211,32 @@ Fisher information is a measurement of the amount of information about the unkno
 
 According to Davier et al. (2019), firstly, We give the definition of the first derivative of log likelihood function as Score function:
 
-$$S(X;\theta)=\sum_{i=1}^n\frac{dlogf(X_i;\theta)}{d\theta}$$
+$$S(X|\theta)=\sum_{i=1}^n\frac{d\log f(X_i;\theta)}{d\theta}$$
 
 where $f(X_i;\theta)$ refers to the likelihood function, θ is the underlying latent trait, and
 x represents the observed response pattern.
 
 Fisher information is second moment of this Score function:
  
-$$I(\theta)=E[S(X;\theta^2)]$$
+$$I(\theta)=E[S(X|\theta^2)]$$
 where $I(\theta)$ is fisher information.
 
 
 #### Mathematical meanings
 
-According to Davier et al. (2019),
-①It can estimate the variance of the MLE equation:
+According to Davier et al. (2019), it can estimate the variance of the MLE equation:
+
 As $E[S(X;\theta)=0$,we can get that
-$$I(\theta)=E[S(X;\theta^2)]-E[S(X;\theta)]=Var[S(X|\theta)]$$
-②It is the expectation of the negative second order derivative of log likelihood at the true value of the parameter
 
-$$I(\theta)=-E[l''(x|\theta)]=-\int[\frac{d^2logf(x|\theta)f(x|\theta)}{d\theta^2}]$$
-$$I(\theta)=-E\lbrace[\frac  {\partial^2 ln f(x;\theta)}{\partial^2 \theta} \rbrace$$
+$$I(\theta)=E[S(X|\theta^2)]-E[S(X|\theta)]=Var[S(X|\theta)]$$
 
-③Fisher Information reflects the accuracy of our parameter estimates; the larger it is, the more accurate the parameter estimate, i.e. the more information it represents.
+It is the expectation of the negative second order derivative of log likelihood at the true value of the parameter
+
+$$I(\theta)=-E[f''(x|\theta)]=-\int\frac{d^2\log f(x|\theta)f(x|\theta)}{d\theta^2} dx$$
+
+$$I(\theta)=-E\left[\frac  {\partial^2 \log f(x;\theta)}{\partial^2 \theta} \right]$$
+
+Fisher Information reflects the accuracy of our parameter estimates; the larger it is, the more accurate the parameter estimate, i.e. the more information it represents.
 
 #### Application 
 
@@ -211,6 +248,7 @@ Assuming local independence the test information I(θ) is additive in item infor
 
 
 For the three-parameter logistic (3PL) model, $P_j(θ)$ is given by
+
 $$P_k(\theta)=c_k+(1-c_k)\frac{e^{a_k(\theta-b_k)}}{1+e^{a_k(\theta-b_k)}}$$
 
 where $a_k$, $b_k$ and $c_k$ respectively refer to the discrimination, hardness, and guessing parameter for the kth item.
@@ -243,46 +281,49 @@ The Kullback Leibler distance (KL-distance) is defined as a natural distance fun
 #### Definition
 For discrete (not necessarily finite) probability distributions, p={p1, ..., pn} and q={q1, ..., qn}, the KL-distance is defined to be
  
-$$D_{KL}(P||Q)=\sum_i P(i)ln(\frac {P(i)}{Q(i)})$$
+$$D_{KL}(P||Q)=\sum_i P(i)\log\left(\frac {P(i)}{Q(i)}\right)$$
  
 For continuous probability densities, 
-$$D_{KL}(P||Q)=\int_{-\infty}^{\infty} P(x)ln(\frac {P(x)}{Q(x)})$$
+
+$$D_{KL}(P||Q)=\int_{-\infty}^{\infty} P(x)\log\left(\frac {P(x)}{Q(x)}\right)$$
 
 Xu et al.’s (2005) KL Algorithm:
 
 According to Cover & Thomas(1991), KL information is a measure of "distance" between two probability distributions, which can be defined as:
-$$d[f,g]=E_f[log \frac{f(x)}{g(x)}]$$
-where f(x) and g(x) are two probability distributions.
 
-However, because the unsymmetrical of d[f, g] and d[g, f], KL information is not a real distance measure. KL distance is still introduced due to the meaning of it, the larger d[f, g] is corresponding to the easier it is to  single out
-between the two probability distributions f(x) and g(x) statistically (Henson & Douglas, 2005).
+$$d[f,g]=E_f\left[\log \frac{f(x)}{g(x)}\right]$$
+where $f(x)$ and $g(x)$ are two probability distributions.
+
+However, because the unsymmetrical of $d[f, g]$ and $d[g, f]$, KL information is not a real distance measure. KL distance is still introduced due to the meaning of it, the larger d[f, g] is corresponding to the easier it is to  single out
+between the two probability distributions $f(x)$ and $g(x)$ statistically (Henson & Douglas, 2005).
 
 #### The KL Algorithm Based on Kullback–Leibler Information (Cheng, 2009)
 
 Suppose t items are selected, and the available items in the pool form a set R(t) at this stage. Consider item h in $R^{(t)}$. In cognitive diagnosis, conditional distribution of person i’s item responses $U_{ih}$ given his or her latent state, or cognitive profile, $\alpha_i$ are what interested. According to the notation of McGlohen and Chang (2008), $\alpha_{i}=(\alpha_{i1},\alpha_{i2},...,\alpha_{ik},...,\alpha_{iK})'$.
 
-Here $\alpha_{ik}$ = 0 indicates that the ith examinee not masters the kth attribute and $\alpha_{ik}$ = 1 otherwise. An attribute is a task, cognitive process, or skill involved in answering an item.
+Here $\alpha_{ik}$ = 0 indicates that the $i$th examinee not masters the kth attribute and $\alpha_{ik} = 1$ otherwise. An attribute is a task, cognitive process, or skill involved in answering an item.
 
 Due to the  unknown true state, a global measure of discrimination can be constructed on
-the basis of the KL distance between the distribution of $U_{ih}$ given the current estimate of person i’s latent cognitive state (i.e., $f(U_{ih}|\hat \alpha_i^{(t)}$)) and the distribution of $U_{ih}$ given other states.
+the basis of the KL distance between the distribution of $U_{ih}$ given the current estimate of person $i$’s latent cognitive state (i.e., $f(U_{ih}|\hat \alpha_i^{(t)}$)) and the distribution of $U_{ih}$ given other states.
 
 The KL distance between $f(U_{ih}|\hat \alpha_i^{(t)}$)) and the conditional distribution of $U_{ih}$ given another latent state $\alpha_c$, i.e., $f(U_{ih}|\alpha_c$)), can be computed as follows:
 
-$$D_h(\hat \alpha_i^{(t)}||\alpha_c)=\sum_{q=0}^1log[\frac{P(U_{ih}=q|\hat \alpha_i^{(t)})}{P(U_{ih}=q|\alpha_c)}]P(U_{ih}=q|\hat \alpha_i^{(t)})$$
+$$D_h(\hat \alpha_i^{(t)}||\alpha_c)=\sum_{q=0}^1\log \left[\frac{P(U_{ih}=q|\hat \alpha_i^{(t)})}{P(U_{ih}=q|\alpha_c)}\right]P(U_{ih}=q|\hat \alpha_i^{(t)})$$
 
 Xu et al. (2003) stated using the straight sum of the KL distances between $f(U_{ih}|\hat \alpha_i^{(t)}$)) and all the $f(U_{ih}|\alpha_c$)), c = 1, 2,..., $2^K$ (when there are K attributes, there are $2^K$ possible latent cognitive states):
+
 $$KL_h(\hat \alpha_i^{(t)})=\sum _{c=1}^{2^K}D_h(\hat \alpha_i^{(t)}||\alpha_c)$$
 
-Then the (t + 1)th item for the ith examinee is the item in R(t) that maximizes $KL_h(\hat \alpha_i^{(t)})$. This is referred to as the KL algorithm. The items selected using this algorithm are the most powerful ones on average in distinguishing the current latent class estimate from all other possible latent classes.
+Then the $(t + 1)$th item for the $i$th examinee is the item in $R(t)$ that maximizes $KL_h(\hat \alpha_i^{(t)})$. This is referred to as the KL algorithm. The items selected using this algorithm are the most powerful ones on average in distinguishing the current latent class estimate from all other possible latent classes.
 
 
 #### Use of KL Distance 
 
 It is helpful to choose the optimal parameter. For instance, if p(x) is unknown, a $q(x|\theta)$ can be constructed  to estimate p(x). In order to know $\theta$, select N samples from p(x) and construct such function:
 
-$$D_{KL}(p||q)=\sum_{i=1}^Np(x_i)(logp(x_i)-log(q(x_i|\theta))$$
+$$D_{KL}(p||q)=\sum_{i=1}^Np(x_i)(\log p(x_i)-\log(q(x_i|\theta))$$
 
-Then use MLE to estimate $\theta$
+Then use MLE to estimate $\theta$.
 
 
 ### Shannon entropy
@@ -293,9 +334,9 @@ It is necessary to know the uncertainty of a random variable and Shannon entropy
 
 For a discrete random variable X which takes value among $x_1,x_2,...x_n$, the Shannon entropy is defined as:
 
-$$H(X)=-\sum_{i=1}^np(x_i)log_b(x_i)$$
+$$H(X)=-\sum_{i=1}^np(x_i)\log_b(x_i)$$
 
-In the definition, $p(x_i)$ is the probability when X = $x_i$. H(X) can also be written as H(P) or H($p_1,p_2,...p_n$). Owing to the formula, we can conclude that independent uncertainties are additive. b is the base of logarithm, which takes value among 2,e and 10. The differences among choices of b are the unit of entropy. For b=2, unit is bit; for b = e, unit is nat; for b = 10, unit is dit or digit.
+In the definition, $p(x_i)$ is the probability when X = $x_i$. $H(X)$ can also be written as $H(P)$ or H($p_1,p_2,...p_n$). Owing to the formula, we can conclude that independent uncertainties are additive. $b$ is the base of logarithm, which takes value among 2,e and 10. The differences among choices of b are the unit of entropy. For $b=2$, unit is bit; for $b = e$, unit is nat; for $ b = 10$, unit is dit or digit.
 
 ### Properties
 
@@ -305,18 +346,23 @@ The choice of b does not influence the properties of Shannon entropy, so we do n
 
 $$H(p_1,p_2,...p_n)\ge0$$
 
-This equality holds only when the distribution is certain which means $\exists\quad p_i=1$, and other $p_j=0$, where i$\ne$j.
+This equality holds only when the distribution is certain which means $\exists\quad p_i=1$, and other $p_j=0$, where $i\neq j$.
 
 #### Maximality
 
-H(P) reaches its maximum when all the events share same probability, which means $p_1=p_2=p_n=\frac{1}{n}$.
-Moreover, if the events all share same probability, H(P) increases with the number of events increasing. It means 
-$$H(\frac{1}{n},\frac{1}{n},...)<H(\frac{1}{n+1},\frac{1}{n+1}...)$$.
+$H(P)$ reaches its maximum when all the events share same probability, which means $p_1=p_2=p_n=\frac{1}{n}$.
+Moreover, if the events all share same probability, $H(P)$ increases with the number of events increasing. It means 
+
+
+$$H(\frac{1}{n},\frac{1}{n},...)<H(\frac{1}{n+1},\frac{1}{n+1}...)$$
+
 
 #### Concavity
+
 Shannon entropy is a concave function of P.
 
 #### Continuity
+
 Shannon entropy is a continuous function of P which means small changes on probability lead to small changes on entropy.
 
 #### Symmetry

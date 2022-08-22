@@ -13,7 +13,7 @@
 
 <title>cdms.knit</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,7 +63,6 @@ if (window.hljs) {
 
 
 
-
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -84,9 +83,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,12 +308,12 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Item Response Theory</a>
+      <a class="navbar-brand" href="index.html">Psychometrics and Educational Statistics</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -325,7 +321,7 @@ div.tocify {
   <a href="ctt.html">Literature Review</a>
 </li>
 <li>
-  <a href="irt.html">CTT and IRT</a>
+  <a href="irt.html">Item Response Theory</a>
 </li>
 <li>
   <a href="cdms.html">Cognitive Diagnosis Models</a>
@@ -456,12 +452,12 @@ q_{J1} &amp; \cdots &amp; q_{Jk} &amp; \cdots &amp; q_{JK}
 <p>The DINA model is a stochastic conjunctive model, which is ‘stochastic’ because the correct answer is not determined solely by the attributes the subject has mastered, but also by the inclusion of <span class="math inline">\(s_j\)</span> and <span class="math inline">\(g_j\)</span>. This means that mastering all the attributes does not guarantee a correct answer, and not mastering the attributes does not guarantee a wrong answer. The ‘conjunctive’ here implies that all attributes are non-compensatory and that a subject’s lack of mastery of one attribute cannot be compensated for by other attributes, and that a lack of mastery of only one attribute is the same as a lack of mastery of all attributes.</p>
 <p>In addition, the DINA model does not require consideration of hierarchical attribute relationships, and instead of finding the subject’s mastery pattern by classification or discriminant methods, it is estimated by MCMC methods as the parameters to be estimated, which include the subject’s mastery pattern and <span class="math inline">\(s_j\)</span>,<span class="math inline">\(g_j\)</span>.It is worth noting here that the model should satisfy <span class="math inline">\(1-s_j&gt;g_j\)</span>; moreover it is required that <span class="math inline">\(x_j\)</span> and <span class="math inline">\(g_j\)</span> should not be too large, and the limit is generally not greater than 0.4. If it exceeds 0.4, it may indicate that the <span class="math inline">\(Q\)</span> matrix is poorly defined, or that the subjects are using other solution strategies, the model does not fit the data, etc.</p>
 </div>
-<div id="references" class="section level3">
-<h3>references</h3>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
 <ul>
 <li>JunkerB W,&amp; SijtsmaK.Cognitive assessment models with few assumptions, and connections with nonparametric item response theory[J]. Applied Psychological Measurement, 2001,25(3):258-272</li>
 </ul>
-</div>
 </div>
 
 

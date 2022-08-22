@@ -6,10 +6,54 @@ output:
     toc_depth: 4
 ---
 
+### About
+
+This is project website for summarizing some basic psychometrics and educational statistical models. The SURF project is funded by SURF 2022165. This website is established by the surf students.
+
+Thanks to Shanzi Bao, Xuetao Feng, Minjie Yang, Yiming Shao, Ruofan Mao, Zhaoxin Yu and Yu Zhong from XJTLU, it is a pleasant experience to study in group.
+
+### Poster
+
+
 ### Outline 
 
-This is project website for summarizing classical test theory, item response theory and basic cognitive diagnosis models.
 
-#### Surf Member and Contribution
+Psychometrics generally refers to specialized fields within psychology and education devoted to testing, measurement, assessment, and related activities. Psychometrics is concerned with the objective measurement of latent constructs that cannot be directly observed. Examples of latent constructs include intelligence, introversion, mental disorders, and educational achievement.  The levels of individuals on non-observable latent variables are inferred through mathematical and statistical modeling based on what is observed from individuals' responses to items on tests and scales. This project will focus on some recent developments in logistic-regression-based psychometrics models, such as Item Response Model, Cognitive Diagnosis Models, etc. 
 
-+ Shanzi Bao, Xuetao Feng, Yu Zhong, Minjie Yang, Yiming Shao, Ruofan Mao and Zhaoxin Yu from XJTLU
+The basic psychometrics models will be introduced through three popular models:
+
++ Classical Test Theory
++ Item Response Theory
++ Cognitive Diagnosis Models
+
+#### Classical Test Theory (CTT), 
+
+Classical Test Theory sometimes called the true score model, is the mathematics behind creating and answering tests and measurement scales. The goal of CTT is to improve tests, particularly the reliability and validity of tests.
+Classical Test Theory assumes that each person has an innate true score. It can be summed up with an equation:
+
+$$ X=T+E$$
+
+Where: 
+
++ X is an observed score
++ T is the true score
++ E is random error
+
+For example, let’s assume you know exactly 70% of all the material covered in a statistics course. This is your true score (T); A perfect end-of-semester test (which doesn’t exist) should ideally reflect this true score. You’re likely to score around 65% to 75%. The 5% discrepancy from your true score is the error (E). 
+
+#### Item Response Theory
+
+Item response Theory (IRT) is a improved method to analyze responses to tests or questionnaires with the goal of improving measurement accuracy and reliability. If you want your test to actually measure what it is supposed to measure (i.e. mathematical ability, a student’s reading ability or historical knowledge), IRT is one way to develop your tests. 
+There are many different models for IRT.
+
+
+
+#### Cognitive Diagnosis Models
+
+Cognitive diagnosis models (CDMs) are special types of restricted latent class model that have received a great deal of attention in the past several years. 
+
+CDMs try to identify if an examinee has mastered specific skills required to solve an item and to identify the strength and weakness in a sets of fine-grained skills(or attributes) differs from the objective of traditional measurement models.
+
+In CDMs, a student is classified into dichotomous latent skill classes according to the corresponding response of a test and a given Q matrix which skills are required to master each item.
+
+

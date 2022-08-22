@@ -13,7 +13,7 @@
 
 <title>index.knit</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,7 +63,6 @@ if (window.hljs) {
 
 
 
-
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -84,9 +83,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,12 +308,12 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Item Response Theory</a>
+      <a class="navbar-brand" href="index.html">Psychometrics and Educational Statistics</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -325,7 +321,7 @@ div.tocify {
   <a href="ctt.html">Literature Review</a>
 </li>
 <li>
-  <a href="irt.html">CTT and IRT</a>
+  <a href="irt.html">Item Response Theory</a>
 </li>
 <li>
   <a href="cdms.html">Cognitive Diagnosis Models</a>
@@ -349,14 +345,50 @@ div.tocify {
 </div>
 
 
+<div id="about" class="section level3">
+<h3>About</h3>
+<p>This is project website for summarizing some basic psychometrics and educational statistical models. The SURF project is funded by SURF 2022165.</p>
+<p>Thanks to Shanzi Bao, Xuetao Feng, Minjie Yang, Yiming Shao, Ruofan Mao, Zhaoxin Yu and Yu Zhong from XJTLU, it is a pleasant experience to study in group.</p>
+</div>
+<div id="poster" class="section level3">
+<h3>Poster</h3>
+</div>
 <div id="outline" class="section level3">
 <h3>Outline</h3>
-<p>This is project website for summarizing classical test theory, item response theory and basic cognitive diagnosis models.</p>
-<div id="surf-member-and-contribution" class="section level4">
-<h4>Surf Member and Contribution</h4>
+<p>Psychometrics generally refers to specialized fields within psychology and education devoted to testing, measurement, assessment, and related activities. Psychometrics is concerned with the objective measurement of latent constructs that cannot be directly observed. Examples of latent constructs include intelligence, introversion, mental disorders, and educational achievement. The levels of individuals on non-observable latent variables are inferred through mathematical and statistical modeling based on what is observed from individuals’ responses to items on tests and scales. This project will focus on some recent developments in logistic-regression-based psychometrics models, such as Item Response Model, Cognitive Diagnosis Models, etc.</p>
+<p>The basic psychometrics models will be introduced through three popular models:</p>
 <ul>
-<li>Shanzi Bao, Xuetao Feng, Yu Zhong, Minjie Yang, Yiming Shao, Ruofan Mao and Zhaoxin Yu from XJTLU</li>
+<li>Classical Test Theory</li>
+<li>Item Response Theory</li>
+<li>Cognitive Diagnosis Models</li>
 </ul>
+<div id="classical-test-theory-ctt" class="section level4">
+<h4>Classical Test Theory (CTT),</h4>
+<p>Classical Test Theory sometimes called the true score model, is the mathematics behind creating and answering tests and measurement scales. The goal of CTT is to improve tests, particularly the reliability and validity of tests. Classical Test Theory assumes that each person has an innate true score. It can be summed up with an equation:</p>
+<p><span class="math display">\[ X=T+E\]</span></p>
+<p>Where:</p>
+<ul>
+<li>X is an observed score</li>
+<li>T is the true score</li>
+<li>E is random error</li>
+</ul>
+<p>For example, let’s assume you know exactly 70% of all the material covered in a statistics course. This is your true score (T); A perfect end-of-semester test (which doesn’t exist) should ideally reflect this true score. You’re likely to score around 65% to 75%. The 5% discrepancy from your true score is the error (E).</p>
+</div>
+<div id="item-response-theory" class="section level4">
+<h4>Item Response Theory</h4>
+<p>Item response Theory (IRT) is a improved method to analyze responses to tests or questionnaires with the goal of improving measurement accuracy and reliability. If you want your test to actually measure what it is supposed to measure (i.e. mathematical ability, a student’s reading ability or historical knowledge), IRT is one way to develop your tests. There are many different models for IRT.</p>
+</div>
+<div id="cognitive-diagnosis-models" class="section level4">
+<h4>Cognitive Diagnosis Models</h4>
+<p>Cognitive diagnosis models (CDMs) are special types of restricted latent class model that have received a great deal of attention in the past several years.</p>
+<p>CDMs try to identify if an examinee has mastered specific skills required to solve an item and to identify the strength and weakness in a sets of fine-grained skills(or attributes) differs from the objective of traditional measurement models.</p>
+<p>In CDMs, a student is classified into dichotomous latent skill classes according to the corresponding response of a test and a given Q matrix which skills are required to master each item.</p>
+</div>
+<div id="project" class="section level4">
+<h4>Project</h4>
+</div>
+<div id="poster-1" class="section level4">
+<h4>Poster</h4>
 </div>
 </div>
 
