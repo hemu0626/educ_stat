@@ -33,7 +33,7 @@ Classical Test Theory assumes that each person has an innate true score. It can 
 
 $$ X=T+E$$
 
-Where: 
+where: 
 
 + X is an observed score
 + T is the true score
