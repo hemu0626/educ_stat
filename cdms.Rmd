@@ -80,7 +80,7 @@ The DINA model is a stochastic conjunctive model, which is 'stochastic' because 
 
 In addition, the DINA model does not require consideration of hierarchical attribute relationships, and instead of finding the subject's mastery pattern by classification or discriminant methods, it is estimated by MCMC methods as the parameters to be estimated, which include the subject's mastery pattern and $s_j$,$g_j$.It is worth noting here that the model should satisfy $1-s_j>g_j$; moreover it is required that $x_j$ and $g_j$ should not be too large, and the limit is generally not greater than 0.4. If it exceeds 0.4, it may indicate that the $Q$ matrix is poorly defined, or that the subjects are using other solution strategies, the model does not fit the data, etc.
 
-## References
+## Reference
 
   + JunkerB W,& SijtsmaK.Cognitive assessment models with few assumptions, and connections with nonparametric item response theory[J]. Applied Psychological Measurement, 2001,25(3):258-272
 
