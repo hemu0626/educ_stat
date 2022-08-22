@@ -113,10 +113,9 @@ There is a standard in Linacre (2006)
 
 
 ### Two-parameter logistic model
-单参数模型只是进行了平移，并没有改变曲线的形状
+
 $$P_i(\theta)=\frac{e^{\theta-b_i}}{1+e^{\theta-bi}}$$
 
-双参数给了一个shape parameter
 
 $$P_i(\theta)=\frac{e^{a_i(\theta-b_i)}}{1+e^{a_i(\theta-b_i)}}$$
 
@@ -145,7 +144,6 @@ In recent remedial teaching, most teachers use the same learning materials for t
 
 ### Three-parameter Logistic Model
 
-Guessing on an item 有些题是可以猜的IRT可以考虑猜的问题。可以再加一个参数
 
 $$[0,1] \rightarrow [0.2,1]$$
 
@@ -181,18 +179,13 @@ logit1<-tam(CTT_score$scored)
 
 Then, we can extract the results
 
-Variance 
 
-EAP Reliability
-
-$$\xi$$
 difficulty level
 
 ```{r echo=TRUE,message=FALSE,eval=TRUE}
 logit1$xsi
 ```
 
-outfit
 
 Mean Sum of Squares
 ```{r echo=TRUE,message=FALSE,eval=TRUE}
